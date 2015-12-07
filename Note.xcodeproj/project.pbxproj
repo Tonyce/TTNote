@@ -12,6 +12,18 @@
 		BE7E46401C157454006A40F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7E463E1C157454006A40F2 /* Main.storyboard */; };
 		BE7E46421C157454006A40F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7E46411C157454006A40F2 /* Assets.xcassets */; };
 		BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7E46431C157454006A40F2 /* LaunchScreen.storyboard */; };
+		BE7E464D1C157498006A40F2 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E464C1C157498006A40F2 /* ButtonComponent.swift */; };
+		BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E464E1C157B8E006A40F2 /* ViewComponent.swift */; };
+		BE7E46511C157BC7006A40F2 /* ColorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46501C157BC7006A40F2 /* ColorComponent.swift */; };
+		BE7E46541C157EC3006A40F2 /* GoogleIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46521C157EC3006A40F2 /* GoogleIcon.swift */; };
+		BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE7E46531C157EC3006A40F2 /* googleicon.ttf */; };
+		BE7E465D1C15A2C2006A40F2 /* MyDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */; };
+		BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E465E1C15AD81006A40F2 /* ItemCell.swift */; };
+		BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46601C15CABA006A40F2 /* TextViewController.swift */; };
+		BE7E46651C15CEDA006A40F2 /* EditToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */; };
+		BE7E46661C15CEDA006A40F2 /* EditToolBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */; };
+		BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46671C15DA31006A40F2 /* TimeConponent.swift */; };
+		BE7E466A1C15DEF1006A40F2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46691C15DEF1006A40F2 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,18 @@
 		BE7E46411C157454006A40F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE7E46441C157454006A40F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE7E46461C157454006A40F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7E464C1C157498006A40F2 /* ButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		BE7E464E1C157B8E006A40F2 /* ViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewComponent.swift; sourceTree = "<group>"; };
+		BE7E46501C157BC7006A40F2 /* ColorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorComponent.swift; sourceTree = "<group>"; };
+		BE7E46521C157EC3006A40F2 /* GoogleIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleIcon.swift; sourceTree = "<group>"; };
+		BE7E46531C157EC3006A40F2 /* googleicon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = googleicon.ttf; sourceTree = "<group>"; };
+		BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDocument.swift; sourceTree = "<group>"; };
+		BE7E465E1C15AD81006A40F2 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		BE7E46601C15CABA006A40F2 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditToolBarViewController.swift; sourceTree = "<group>"; };
+		BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToolBarViewController.xib; sourceTree = "<group>"; };
+		BE7E46671C15DA31006A40F2 /* TimeConponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConponent.swift; sourceTree = "<group>"; };
+		BE7E46691C15DEF1006A40F2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +78,34 @@
 		BE7E46391C157453006A40F2 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				BE7E46621C15CD63006A40F2 /* component */,
 				BE7E463A1C157454006A40F2 /* AppDelegate.swift */,
 				BE7E463C1C157454006A40F2 /* ViewController.swift */,
+				BE7E46601C15CABA006A40F2 /* TextViewController.swift */,
+				BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */,
+				BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */,
 				BE7E463E1C157454006A40F2 /* Main.storyboard */,
 				BE7E46411C157454006A40F2 /* Assets.xcassets */,
 				BE7E46431C157454006A40F2 /* LaunchScreen.storyboard */,
 				BE7E46461C157454006A40F2 /* Info.plist */,
+				BE7E465E1C15AD81006A40F2 /* ItemCell.swift */,
+				BE7E46691C15DEF1006A40F2 /* TableViewController.swift */,
 			);
 			path = Note;
+			sourceTree = "<group>";
+		};
+		BE7E46621C15CD63006A40F2 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				BE7E46671C15DA31006A40F2 /* TimeConponent.swift */,
+				BE7E46521C157EC3006A40F2 /* GoogleIcon.swift */,
+				BE7E46531C157EC3006A40F2 /* googleicon.ttf */,
+				BE7E464C1C157498006A40F2 /* ButtonComponent.swift */,
+				BE7E464E1C157B8E006A40F2 /* ViewComponent.swift */,
+				BE7E46501C157BC7006A40F2 /* ColorComponent.swift */,
+				BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */,
+			);
+			name = component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */,
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
 				BE7E46421C157454006A40F2 /* Assets.xcassets in Resources */,
 				BE7E46401C157454006A40F2 /* Main.storyboard in Resources */,
+				BE7E46661C15CEDA006A40F2 /* EditToolBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +182,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */,
+				BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */,
+				BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */,
 				BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */,
+				BE7E464D1C157498006A40F2 /* ButtonComponent.swift in Sources */,
+				BE7E46651C15CEDA006A40F2 /* EditToolBarViewController.swift in Sources */,
+				BE7E46541C157EC3006A40F2 /* GoogleIcon.swift in Sources */,
+				BE7E466A1C15DEF1006A40F2 /* TableViewController.swift in Sources */,
+				BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */,
+				BE7E465D1C15A2C2006A40F2 /* MyDocument.swift in Sources */,
 				BE7E463B1C157454006A40F2 /* AppDelegate.swift in Sources */,
+				BE7E46511C157BC7006A40F2 /* ColorComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
