@@ -47,6 +47,12 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+
+        if self.showTitle != nil {
+            self.removeNavigationBarItem()
+        }else {
+            self.setNavigationBarItem()
+        }
         
         if showTitle != nil {
             self.title = showTitle!
@@ -63,6 +69,7 @@ class ViewController: UIViewController {
         textViewController.documentUrl = cell?.documentUrl
         textViewController.showTitle = cell?.title
     }
+
 }
 
 // MARK: - Item Attributes in documentUrl
@@ -297,7 +304,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         indexPathForSelectedRow = tableView.indexPathForSelectedRow
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? ItemCell
         if cell?.isDir == true {
-            let viewController = storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            let viewController = storyboard?.instantiateViewControllerWithIdentifier("MainViewController") as! ViewController
             viewController.documentUrl = cell?.documentUrl
             viewController.showTitle = cell?.title
             self.navigationController?.pushViewController(viewController, animated: true)

@@ -1,15 +1,16 @@
 //
-//  TableViewController.swift
+//  LeftViewController.swift
 //  Note
 //
-//  Created by D_ttang on 15/12/7.
+//  Created by D_ttang on 15/12/8.
 //  Copyright © 2015年 D_ttang. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class LeftViewController: UITableViewController {
 
+    var mainViewController: UIViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
