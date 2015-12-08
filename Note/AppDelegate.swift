@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+//import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

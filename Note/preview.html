@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0">
+    <title>preview</title>
+    <style>
+        * {
+            margin: 0;
+            font-weight: 100;
+            -webkit-user-select: none;   /* 禁止选中文本(如无文本选中需求,此为必选项) */
+            -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+        }
+        body {
+            margin: 0 4px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            padding: 0 10px;
+        }
+        p {
+            padding: 5px 10px;
+            line-height: 22px;
+        }
+        .icon {
+            display: inline-block;
+            width: 2em;
+            height: 2em;
+            /*fill: currentColor;*/
+        }
+        span {
+            margin: 1px;
+        }
+        div {
+            
+        }
+        .flex-layout {
+            display: -webkit-flex;
+            display: flex;
+        }
+        .row {
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+        
+        .column {
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+        .column-reverse {
+            -webkit-flex-direction: column-reverse ;
+            flex-direction: column-reverse ;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: -webkit-flex;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+        }
+        .v-center {
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+        .h-center {
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        
+        .button {
+            font-size: 13;
+            color: #2196F3;
+            width: 60px;
+            height: 24px;
+            border-radius: 12px;
+            border: solid 1px #2196F3;
+        }
+        
+        header {
+            margin: 25px 0 10px 0;
+        }
+        
+        header .main {
+            margin: 5px 10px;
+            font-size: 24px;
+            justify-content:space-between;
+            -webkit-justify-content:space-between;
+        }
+        #name {
+            font-size: 13px;
+            padding: 0 5px 1px 10px;
+            border-bottom: dotted 1px #2196F3;
+        }
+        .content {
+            /*padding: 10px;*/
+        }
+        
+        .label {
+            margin: 2px 0;
+            font-size: 10px;
+            color: #2196F3;
+            width: 50px;
+            height: 16px;
+            border-radius: 8px;
+            border: solid 1px #2196F3;
+        }
+        .label-container {
+            width: 30%;
+            margin-right: 10px;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+        .actions {
+            background: #EEEEEE;
+            height: 80px;
+            /*align-items: flex-end;*/
+            
+            padding-right: 15px;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .info {
+            padding: 0 10px;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+        
+        .image {
+            margin: 0 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            /*border: 1px solid grey;*/
+        }
+        .time {
+            font-size: 12px;
+            /*justify-content: flex-end;*/
+            -webkit-align-items: flex-end;
+            align-items: flex-end;
+            margin: 0 5px;
+            /*transform: translate(0,-8px);*/
+            color: #9E9E9E;
+        }
+        
+        .icon-container {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            border-style: solid;
+            border-width: 0.5px;
+            /*border: solid 1px;*/
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            margin: 0 5px;
+            border-color:  #9E9E9E;
+        }
+    
+    .hljs{display:block;overflow-x:auto;padding:0.5em;background:#444;-webkit-text-size-adjust:none}.hljs-keyword,.hljs-literal,.hljs-change,.hljs-winutils,.hljs-flow,.nginx .hljs-title,.tex .hljs-special{color:white}.hljs,.hljs-subst{color:#ddd}.hljs-string,.hljs-title,.hljs-type,.ini .hljs-title,.hljs-tag .hljs-value,.css .hljs-rule .hljs-value,.hljs-preprocessor,.hljs-pragma,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string,.ruby .hljs-class .hljs-parent,.hljs-built_in,.django .hljs-template_tag,.django .hljs-variable,.smalltalk .hljs-class,.ruby .hljs-string,.django .hljs-filter .hljs-argument,.smalltalk .hljs-localvars,.smalltalk .hljs-array,.hljs-attr_selector,.hljs-pseudo,.hljs-addition,.hljs-stream,.hljs-envvar,.apache .hljs-tag,.apache .hljs-cbracket,.tex .hljs-command,.hljs-prompt,.coffeescript .hljs-attribute,.hljs-name{color:#d88}.hljs-comment,.hljs-annotation,.hljs-decorator,.hljs-pi,.hljs-doctype,.hljs-deletion,.hljs-shebang,.apache .hljs-sqbracket,.tex .hljs-formula{color:#777}.hljs-keyword,.hljs-literal,.hljs-title,.css .hljs-id,.hljs-doctag,.hljs-type,.vbscript .hljs-built_in,.rsl .hljs-built_in,.smalltalk .hljs-class,.diff .hljs-header,.hljs-chunk,.hljs-winutils,.bash .hljs-variable,.apache .hljs-tag,.tex .hljs-special,.hljs-request,.hljs-status{font-weight:bold}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:0.5}
+    </style>
+    
+    
+
+<!--    <link rel="stylesheet" href="dark.min.css">-->
+
+
+    </head>
+    <body>
+        <div class="content">
+            {{content}}
+        </div>
+        <script type="text/javascript" src="highlight.min.js"></script>
+        <script>
+            window.onload = function () {}
+        </script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

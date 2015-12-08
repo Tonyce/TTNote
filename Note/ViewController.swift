@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-
+        getItems()
         if self.showTitle != nil {
             self.removeNavigationBarItem()
         }else {
@@ -65,10 +65,35 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
-        let textViewController = segue.destinationViewController as! TextViewController
-        textViewController.documentUrl = cell?.documentUrl
-        textViewController.showTitle = cell?.title
+        
+        if cell?.fileType == "txt" {
+            let textViewController = segue.destinationViewController as! TextViewController
+            textViewController.documentUrl = cell?.documentUrl
+            textViewController.showTitle = cell?.title
+        }
+        
+        if cell?.fileType == "pdf" {
+            let pdfViewController = segue.destinationViewController as! PDFViewController
+            pdfViewController.documentUrl = cell?.documentUrl
+            pdfViewController.showTitle = cell?.title
+        }
     }
+    
+
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        
+//    }
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
+//        
+//        if identifier == "textSegue" {
+//            if cell?.fileType != "txt" {
+//                return false
+//            }
+//        }
+//        return true
+//        
+//    }
 
 }
 
@@ -98,13 +123,13 @@ extension ViewController {
                 var attributes = try filemgr.attributesOfItemAtPath(itemPath!)
                 attributes["NSFileName"] = filemgr.displayNameAtPath(itemPath!)
                 attributes["documentUrl"] = itemUrl
-//                temData.append(attributes)
                 let itemType = attributes["NSFileType"] as? String
                 if itemType == "NSFileTypeRegular" {
                     tmpFileDatas.append(attributes)
                 }else {
                     tmpDirDatas.append(attributes)
                 }
+                // print(attributes)
             }catch _ {
                 print("err in category")
             }
@@ -309,7 +334,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             viewController.showTitle = cell?.title
             self.navigationController?.pushViewController(viewController, animated: true)
         }else {
-            self.performSegueWithIdentifier("textSegue", sender: self)
+            if cell?.fileType == "txt" {
+                self.performSegueWithIdentifier("textSegue", sender: self)
+            }else if cell?.fileType == "pdf" {
+                self.performSegueWithIdentifier("pdfSegue", sender: self)
+            }else {
+                tableView.deselectRowAtIndexPath(indexPathForSelectedRow!, animated: true)
+            }
         }
     }
 }

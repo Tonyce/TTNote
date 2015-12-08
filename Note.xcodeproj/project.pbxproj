@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63541E5D79B07AD2C06B6615 /* Pods_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED18F5CDAACDE4293F72859 /* Pods_Note.framework */; };
+		3031D8E52BB0FCFB8E145CB4 /* Pods_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5D295BE58C7792553FAD73 /* Pods_Note.framework */; };
+		BE0797E51C16899E008D475C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0797E41C16899E008D475C /* SettingViewController.swift */; };
+		BE0797E71C168E39008D475C /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0797E61C168E39008D475C /* LeftViewCell.swift */; };
+		BE0797F61C169B71008D475C /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0797F11C169B71008D475C /* PreviewViewController.swift */; };
+		BE0797F71C169B71008D475C /* marked.min.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0797F21C169B71008D475C /* marked.min.js */; };
+		BE0797F81C169B71008D475C /* highlight.min.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0797F31C169B71008D475C /* highlight.min.js */; };
+		BE0797F91C169B71008D475C /* dark.min.css in Resources */ = {isa = PBXBuildFile; fileRef = BE0797F41C169B71008D475C /* dark.min.css */; };
+		BE0797FA1C169B71008D475C /* preview.html in Resources */ = {isa = PBXBuildFile; fileRef = BE0797F51C169B71008D475C /* preview.html */; };
+		BE0797FC1C16EB33008D475C /* myicomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE0797FB1C16EB33008D475C /* myicomoon.ttf */; };
+		BE0797FE1C16EB66008D475C /* IcoMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0797FD1C16EB66008D475C /* IcoMoon.swift */; };
 		BE7E463B1C157454006A40F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E463A1C157454006A40F2 /* AppDelegate.swift */; };
 		BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E463C1C157454006A40F2 /* ViewController.swift */; };
 		BE7E46401C157454006A40F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7E463E1C157454006A40F2 /* Main.storyboard */; };
@@ -21,15 +30,26 @@
 		BE7E465D1C15A2C2006A40F2 /* MyDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */; };
 		BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E465E1C15AD81006A40F2 /* ItemCell.swift */; };
 		BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46601C15CABA006A40F2 /* TextViewController.swift */; };
-		BE7E46651C15CEDA006A40F2 /* EditToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */; };
-		BE7E46661C15CEDA006A40F2 /* EditToolBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */; };
 		BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46671C15DA31006A40F2 /* TimeConponent.swift */; };
-		BEC92B7F1C15EA3800A2645C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B7E1C15EA3800A2645C /* LeftViewController.swift */; };
+		BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */; };
 		BEC92B811C15EC6E00A2645C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B801C15EC6E00A2645C /* UIViewController.swift */; };
+		BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B821C167E5C00A2645C /* LeftViewController.swift */; };
+		BEC92B851C167FC900A2645C /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B841C167FC900A2645C /* SlideMenuController.swift */; };
+		BEECB1791C1731EF003A34B0 /* EditToolBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */; };
+		BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F0057B61237A3BA5F1599C4 /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
+		3BBB48757D7B4F33880F919C /* Pods-Note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.release.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.release.xcconfig"; sourceTree = "<group>"; };
+		BE0797E41C16899E008D475C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BE0797E61C168E39008D475C /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
+		BE0797F11C169B71008D475C /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		BE0797F21C169B71008D475C /* marked.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = marked.min.js; sourceTree = "<group>"; };
+		BE0797F31C169B71008D475C /* highlight.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.min.js; sourceTree = "<group>"; };
+		BE0797F41C169B71008D475C /* dark.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark.min.css; sourceTree = "<group>"; };
+		BE0797F51C169B71008D475C /* preview.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = preview.html; sourceTree = "<group>"; };
+		BE0797FB1C16EB33008D475C /* myicomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = myicomoon.ttf; sourceTree = "<group>"; };
+		BE0797FD1C16EB66008D475C /* IcoMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoMoon.swift; sourceTree = "<group>"; };
 		BE7E46371C157453006A40F2 /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7E463A1C157454006A40F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7E463C1C157454006A40F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,13 +65,15 @@
 		BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDocument.swift; sourceTree = "<group>"; };
 		BE7E465E1C15AD81006A40F2 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		BE7E46601C15CABA006A40F2 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditToolBarViewController.swift; sourceTree = "<group>"; };
-		BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToolBarViewController.xib; sourceTree = "<group>"; };
 		BE7E46671C15DA31006A40F2 /* TimeConponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConponent.swift; sourceTree = "<group>"; };
-		BEC92B7E1C15EA3800A2645C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		BEC92B801C15EC6E00A2645C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		BED18F5CDAACDE4293F72859 /* Pods_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C91C3A7C050F0C70944DEF09 /* Pods-Note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.release.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.release.xcconfig"; sourceTree = "<group>"; };
+		BEC92B821C167E5C00A2645C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		BEC92B841C167FC900A2645C /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditToolBarController.swift; sourceTree = "<group>"; };
+		BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToolBarController.xib; sourceTree = "<group>"; };
+		CF5D295BE58C7792553FAD73 /* Pods_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,20 +81,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63541E5D79B07AD2C06B6615 /* Pods_Note.framework in Frameworks */,
+				3031D8E52BB0FCFB8E145CB4 /* Pods_Note.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9CA13C8005877E38798EB23E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */,
+				3BBB48757D7B4F33880F919C /* Pods-Note.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE0797E81C1691EF008D475C /* leftView */ = {
+			isa = PBXGroup;
+			children = (
+				BEC92B821C167E5C00A2645C /* LeftViewController.swift */,
+				BE0797E61C168E39008D475C /* LeftViewCell.swift */,
+			);
+			name = leftView;
+			sourceTree = "<group>";
+		};
+		BE0797EF1C1694C9008D475C /* textView */ = {
+			isa = PBXGroup;
+			children = (
+				BE7E46601C15CABA006A40F2 /* TextViewController.swift */,
+				BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */,
+				BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */,
+			);
+			name = textView;
+			sourceTree = "<group>";
+		};
+		BE0797F01C169B4F008D475C /* preview */ = {
+			isa = PBXGroup;
+			children = (
+				BE0797F11C169B71008D475C /* PreviewViewController.swift */,
+				BE0797F21C169B71008D475C /* marked.min.js */,
+				BE0797F31C169B71008D475C /* highlight.min.js */,
+				BE0797F41C169B71008D475C /* dark.min.css */,
+				BE0797F51C169B71008D475C /* preview.html */,
+			);
+			name = preview;
+			sourceTree = "<group>";
+		};
 		BE7E462E1C157453006A40F2 = {
 			isa = PBXGroup;
 			children = (
 				BE7E46391C157453006A40F2 /* Note */,
 				BE7E46381C157453006A40F2 /* Products */,
-				EE9D22784E7376B18DB466A1 /* Pods */,
 				D4C95B3AB92CC58855CA0D18 /* Frameworks */,
+				9CA13C8005877E38798EB23E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,18 +149,19 @@
 		BE7E46391C157453006A40F2 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				BE0797F01C169B4F008D475C /* preview */,
+				BE0797EF1C1694C9008D475C /* textView */,
+				BE0797E81C1691EF008D475C /* leftView */,
 				BE7E46621C15CD63006A40F2 /* component */,
 				BE7E463A1C157454006A40F2 /* AppDelegate.swift */,
 				BE7E463C1C157454006A40F2 /* ViewController.swift */,
-				BE7E46601C15CABA006A40F2 /* TextViewController.swift */,
-				BE7E46631C15CEDA006A40F2 /* EditToolBarViewController.swift */,
-				BE7E46641C15CEDA006A40F2 /* EditToolBarViewController.xib */,
+				BE7E465E1C15AD81006A40F2 /* ItemCell.swift */,
+				BE0797E41C16899E008D475C /* SettingViewController.swift */,
 				BE7E463E1C157454006A40F2 /* Main.storyboard */,
 				BE7E46411C157454006A40F2 /* Assets.xcassets */,
 				BE7E46431C157454006A40F2 /* LaunchScreen.storyboard */,
 				BE7E46461C157454006A40F2 /* Info.plist */,
-				BE7E465E1C15AD81006A40F2 /* ItemCell.swift */,
-				BEC92B7E1C15EA3800A2645C /* LeftViewController.swift */,
+				BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -106,6 +169,9 @@
 		BE7E46621C15CD63006A40F2 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				BE0797FB1C16EB33008D475C /* myicomoon.ttf */,
+				BE0797FD1C16EB66008D475C /* IcoMoon.swift */,
+				BEC92B841C167FC900A2645C /* SlideMenuController.swift */,
 				BEC92B801C15EC6E00A2645C /* UIViewController.swift */,
 				BE7E46671C15DA31006A40F2 /* TimeConponent.swift */,
 				BE7E46521C157EC3006A40F2 /* GoogleIcon.swift */,
@@ -121,18 +187,9 @@
 		D4C95B3AB92CC58855CA0D18 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BED18F5CDAACDE4293F72859 /* Pods_Note.framework */,
+				CF5D295BE58C7792553FAD73 /* Pods_Note.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EE9D22784E7376B18DB466A1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6F0057B61237A3BA5F1599C4 /* Pods-Note.debug.xcconfig */,
-				C91C3A7C050F0C70944DEF09 /* Pods-Note.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,12 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE7E46491C157454006A40F2 /* Build configuration list for PBXNativeTarget "Note" */;
 			buildPhases = (
-				CE068BE2B751CB5FD5111669 /* Check Pods Manifest.lock */,
+				94AE7F3517FCABD386F6B34A /* Check Pods Manifest.lock */,
 				BE7E46331C157453006A40F2 /* Sources */,
 				BE7E46341C157453006A40F2 /* Frameworks */,
 				BE7E46351C157453006A40F2 /* Resources */,
-				97788DA1FF9703227B3F839A /* Embed Pods Frameworks */,
-				2B687260FB594AFB4D07EF55 /* Copy Pods Resources */,
+				D1CF300BBF98E34B0C75CB94 /* Embed Pods Frameworks */,
+				14D111F541C0BA6AE43E3851 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,16 +256,21 @@
 			files = (
 				BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */,
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
+				BE0797F71C169B71008D475C /* marked.min.js in Resources */,
+				BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */,
+				BE0797FC1C16EB33008D475C /* myicomoon.ttf in Resources */,
 				BE7E46421C157454006A40F2 /* Assets.xcassets in Resources */,
+				BE0797FA1C169B71008D475C /* preview.html in Resources */,
 				BE7E46401C157454006A40F2 /* Main.storyboard in Resources */,
-				BE7E46661C15CEDA006A40F2 /* EditToolBarViewController.xib in Resources */,
+				BE0797F81C169B71008D475C /* highlight.min.js in Resources */,
+				BE0797F91C169B71008D475C /* dark.min.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B687260FB594AFB4D07EF55 /* Copy Pods Resources */ = {
+		14D111F541C0BA6AE43E3851 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -223,22 +285,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Note/Pods-Note-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		97788DA1FF9703227B3F839A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Note/Pods-Note-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE068BE2B751CB5FD5111669 /* Check Pods Manifest.lock */ = {
+		94AE7F3517FCABD386F6B34A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +300,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D1CF300BBF98E34B0C75CB94 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Note/Pods-Note-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -261,13 +323,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */,
+				BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */,
 				BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */,
 				BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */,
+				BE0797E71C168E39008D475C /* LeftViewCell.swift in Sources */,
+				BE0797F61C169B71008D475C /* PreviewViewController.swift in Sources */,
 				BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */,
-				BEC92B7F1C15EA3800A2645C /* LeftViewController.swift in Sources */,
+				BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */,
+				BE0797E51C16899E008D475C /* SettingViewController.swift in Sources */,
 				BE7E464D1C157498006A40F2 /* ButtonComponent.swift in Sources */,
-				BE7E46651C15CEDA006A40F2 /* EditToolBarViewController.swift in Sources */,
+				BEECB1791C1731EF003A34B0 /* EditToolBarController.swift in Sources */,
 				BEC92B811C15EC6E00A2645C /* UIViewController.swift in Sources */,
+				BEC92B851C167FC900A2645C /* SlideMenuController.swift in Sources */,
+				BE0797FE1C16EB66008D475C /* IcoMoon.swift in Sources */,
 				BE7E46541C157EC3006A40F2 /* GoogleIcon.swift in Sources */,
 				BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */,
 				BE7E465D1C15A2C2006A40F2 /* MyDocument.swift in Sources */,
@@ -381,10 +449,11 @@
 		};
 		BE7E464A1C157454006A40F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F0057B61237A3BA5F1599C4 /* Pods-Note.debug.xcconfig */;
+			baseConfigurationReference = F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Note/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ttang.Note;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,10 +462,11 @@
 		};
 		BE7E464B1C157454006A40F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C91C3A7C050F0C70944DEF09 /* Pods-Note.release.xcconfig */;
+			baseConfigurationReference = 3BBB48757D7B4F33880F919C /* Pods-Note.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Note/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ttang.Note;
 				PRODUCT_NAME = "$(TARGET_NAME)";
