@@ -103,7 +103,7 @@
 				BEC92B821C167E5C00A2645C /* LeftViewController.swift */,
 				BE0797E61C168E39008D475C /* LeftViewCell.swift */,
 			);
-			name = leftView;
+			path = leftView;
 			sourceTree = "<group>";
 		};
 		BE0797EF1C1694C9008D475C /* textView */ = {
@@ -113,7 +113,7 @@
 				BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */,
 				BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */,
 			);
-			name = textView;
+			path = textView;
 			sourceTree = "<group>";
 		};
 		BE0797F01C169B4F008D475C /* preview */ = {
@@ -125,7 +125,7 @@
 				BE0797F41C169B71008D475C /* dark.min.css */,
 				BE0797F51C169B71008D475C /* preview.html */,
 			);
-			name = preview;
+			path = preview;
 			sourceTree = "<group>";
 		};
 		BE7E462E1C157453006A40F2 = {
@@ -181,7 +181,7 @@
 				BE7E46501C157BC7006A40F2 /* ColorComponent.swift */,
 				BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */,
 			);
-			name = component;
+			path = component;
 			sourceTree = "<group>";
 		};
 		D4C95B3AB92CC58855CA0D18 /* Frameworks */ = {
