@@ -37,6 +37,8 @@
 		BEC92B851C167FC900A2645C /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B841C167FC900A2645C /* SlideMenuController.swift */; };
 		BEECB1791C1731EF003A34B0 /* EditToolBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */; };
 		BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */; };
+		BEECB17D1C1742C7003A34B0 /* WebServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEECB17C1C1742C7003A34B0 /* WebServerViewController.swift */; };
+		BEECB17F1C17438E003A34B0 /* GCDWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BEECB17E1C17438E003A34B0 /* GCDWebUploader.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		BEC92B841C167FC900A2645C /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		BEECB1771C1731EF003A34B0 /* EditToolBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditToolBarController.swift; sourceTree = "<group>"; };
 		BEECB1781C1731EF003A34B0 /* EditToolBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditToolBarController.xib; sourceTree = "<group>"; };
+		BEECB17C1C1742C7003A34B0 /* WebServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServerViewController.swift; sourceTree = "<group>"; };
+		BEECB17E1C17438E003A34B0 /* GCDWebUploader.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GCDWebUploader.bundle; sourceTree = "<group>"; };
 		CF5D295BE58C7792553FAD73 /* Pods_Note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +153,7 @@
 		BE7E46391C157453006A40F2 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				BEECB17B1C17426E003A34B0 /* webServerView */,
 				BE0797F01C169B4F008D475C /* preview */,
 				BE0797EF1C1694C9008D475C /* textView */,
 				BE0797E81C1691EF008D475C /* leftView */,
@@ -182,6 +187,16 @@
 				BE7E465C1C15A2C2006A40F2 /* MyDocument.swift */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		BEECB17B1C17426E003A34B0 /* webServerView */ = {
+			isa = PBXGroup;
+			children = (
+				BEECB17C1C1742C7003A34B0 /* WebServerViewController.swift */,
+				BEECB17E1C17438E003A34B0 /* GCDWebUploader.bundle */,
+			);
+			name = webServerView;
+			path = webServer;
 			sourceTree = "<group>";
 		};
 		D4C95B3AB92CC58855CA0D18 /* Frameworks */ = {
@@ -258,6 +273,7 @@
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
 				BE0797F71C169B71008D475C /* marked.min.js in Resources */,
 				BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */,
+				BEECB17F1C17438E003A34B0 /* GCDWebUploader.bundle in Resources */,
 				BE0797FC1C16EB33008D475C /* myicomoon.ttf in Resources */,
 				BE7E46421C157454006A40F2 /* Assets.xcassets in Resources */,
 				BE0797FA1C169B71008D475C /* preview.html in Resources */,
@@ -330,6 +346,7 @@
 				BE0797F61C169B71008D475C /* PreviewViewController.swift in Sources */,
 				BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */,
 				BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */,
+				BEECB17D1C1742C7003A34B0 /* WebServerViewController.swift in Sources */,
 				BE0797E51C16899E008D475C /* SettingViewController.swift in Sources */,
 				BE7E464D1C157498006A40F2 /* ButtonComponent.swift in Sources */,
 				BEECB1791C1731EF003A34B0 /* EditToolBarController.swift in Sources */,

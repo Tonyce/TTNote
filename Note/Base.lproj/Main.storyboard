@@ -378,6 +378,51 @@
             </objects>
             <point key="canvasLocation" x="777" y="1001"/>
         </scene>
+        <!--Web Server View Controller-->
+        <scene sceneID="x1m-r3-HOX">
+            <objects>
+                <viewController storyboardIdentifier="WebServerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SPW-id-uMW" customClass="WebServerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="77d-L0-y8v"/>
+                        <viewControllerLayoutGuide type="bottom" id="9mH-BB-qzq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EY8-t1-nXx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04j-Nk-DfH">
+                                <rect key="frame" x="20" y="40" width="560" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="WBM-2L-zab"/>
+                                    <constraint firstAttribute="height" constant="21" id="ZCn-T0-yiY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WBM-2L-zab"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="04j-Nk-DfH" secondAttribute="trailing" id="oRF-Hf-h4c"/>
+                            <constraint firstItem="04j-Nk-DfH" firstAttribute="leading" secondItem="EY8-t1-nXx" secondAttribute="leadingMargin" id="rLl-IR-Thf"/>
+                            <constraint firstItem="04j-Nk-DfH" firstAttribute="top" secondItem="EY8-t1-nXx" secondAttribute="topMargin" constant="40" id="raL-DJ-EqR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webLabel" destination="04j-Nk-DfH" id="f5f-8V-HvM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxi-sH-WNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773" y="1725"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="iFH-Dq-PhU">
             <objects>
