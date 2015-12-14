@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class HelpViewController: UIViewController {
 
@@ -15,8 +16,11 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var webView: UIWebView!
     
+    let wkWebView = WKWebView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        webView.scrollView.contentInset.top = 66
         
         closeBtn.backgroundColor = UIColor.clearColor()
         closeBtn.titleLabel?.font = UIFont(name: "googleicon", size: 21)
@@ -26,13 +30,24 @@ class HelpViewController: UIViewController {
         menuBtn.titleLabel?.font = UIFont(name: "googleicon", size: 22)
         menuBtn.setTitle(GoogleIcon.ea6d, forState: UIControlState.Normal)
         
-        var htmlStr = ""
-        let path = NSBundle.mainBundle().pathForResource("help", ofType: "html")
+        var mdStr = ""
+        let path = NSBundle.mainBundle().pathForResource("note", ofType: "md")
         // print(path)
         do {
-            htmlStr = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+            mdStr = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         }catch _ {}
-        webView.loadHTMLString(htmlStr, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+        
+        if mdStr != "" {
+            mdStr = mdStr.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
+            mdStr = mdStr.stringByReplacingOccurrencesOfString("\'", withString: "\\'")
+            mdStr = mdStr.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
+        }
+
+        parserMarkdownStrToHtml(mdStr) {
+            (htmlStr) -> Void in
+            self.loadModelHtml(htmlStr)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,5 +61,55 @@ class HelpViewController: UIViewController {
 
     @IBAction func close(sender: AnyObject) {
         delegate?.changeViewController(LeftMenu.Note)
+    }
+    
+    
+    func loadModelHtml(html: String) {
+        var htmlModel: String = ""
+        let path = NSBundle.mainBundle().pathForResource("preview", ofType: "html")
+        do {
+            htmlModel = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        }catch _ {}
+        
+        var css: String = ""
+        let cssPath = NSBundle.mainBundle().pathForResource("dark.min", ofType: "css")
+        do {
+            css = try String(contentsOfFile: cssPath!, encoding: NSUTF8StringEncoding)
+        }catch _ {}
+        
+        
+        let htmlStr = render(htmlModel, dict: [
+                                            "content": html,
+                                            "highlightCss": css
+                                        ])
+
+        self.webView.loadHTMLString(htmlStr, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+    }
+    
+    func render (var str: String, dict: Dictionary<String, String>) -> String {
+        for (key, value) in dict {
+            str = str.stringByReplacingOccurrencesOfString("{{\(key)}}", withString: value)
+        }
+        return str
+    }
+    
+    func parserMarkdownStrToHtml(markedStr: String, callback: (htmlStr: String) -> Void) {
+        
+        let markedScriptURL = NSBundle.mainBundle().pathForResource("marked.min", ofType: "js")
+        var markedJS: String = ""
+        do {
+            markedJS = try String(contentsOfFile:markedScriptURL!, encoding:NSUTF8StringEncoding)
+        } catch _ {
+            markedJS = ""
+        }
+        let evaluateJS = "\(markedJS);marked('\(markedStr)')"
+        wkWebView.evaluateJavaScript(evaluateJS) {
+            (result, error) -> Void in
+            guard let resultStr = result else {
+                callback(htmlStr: "")
+                return
+            }
+            callback(htmlStr: resultStr as! String)
+        }
     }
 }

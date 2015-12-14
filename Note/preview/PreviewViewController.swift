@@ -39,13 +39,12 @@ class PreviewViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-        
         self.automaticallyAdjustsScrollViewInsets = false
         initPreViewBtns()
         uiWebView.scrollView.delegate = self
         rightItemBtn.title = "另存为"
         addWebViewToView()
+        
         if markdownStr != "" {
             markdownStr = markdownStr.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
             markdownStr = markdownStr.stringByReplacingOccurrencesOfString("\'", withString: "\\'")

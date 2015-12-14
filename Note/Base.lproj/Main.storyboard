@@ -715,7 +715,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LK1-Ai-kOJ">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87s-Gs-sZS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LK1-Ai-kOJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帮助" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esA-UM-QnE">
@@ -772,21 +776,18 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="bww-FW-dUa"/>
                                         <exclude reference="bcG-nm-iss"/>
+                                        <exclude reference="bww-FW-dUa"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <action selector="close:" destination="XfY-Ca-m83" eventType="touchUpInside" id="buf-eQ-Uke"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87s-Gs-sZS">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="87s-Gs-sZS" firstAttribute="top" secondItem="MIS-FB-D38" secondAttribute="topMargin" id="57x-x6-sek"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LK1-Ai-kOJ" secondAttribute="trailing" constant="-20" id="A5e-s9-6R5"/>
                             <constraint firstItem="LK1-Ai-kOJ" firstAttribute="top" secondItem="MIS-FB-D38" secondAttribute="topMargin" id="FSo-DA-Tpj"/>
                             <constraint firstItem="cCo-st-8t4" firstAttribute="leading" secondItem="MIS-FB-D38" secondAttribute="leadingMargin" constant="-16" id="JFV-6O-OWa"/>
@@ -799,7 +800,6 @@
                             <constraint firstItem="esA-UM-QnE" firstAttribute="centerX" secondItem="MIS-FB-D38" secondAttribute="centerX" id="oyI-sT-5Tl"/>
                             <constraint firstItem="87s-Gs-sZS" firstAttribute="leading" secondItem="MIS-FB-D38" secondAttribute="leadingMargin" constant="-20" id="qNN-HO-7ve"/>
                             <constraint firstItem="uYC-zw-0pD" firstAttribute="top" secondItem="f4D-gu-4vb" secondAttribute="bottom" id="rEO-8M-Une"/>
-                            <constraint firstItem="87s-Gs-sZS" firstAttribute="top" secondItem="uYC-zw-0pD" secondAttribute="bottom" id="w8F-47-mIu"/>
                         </constraints>
                     </view>
                     <connections>
