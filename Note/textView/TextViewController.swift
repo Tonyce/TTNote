@@ -28,6 +28,8 @@ class TextViewController: UIViewController {
         notificationCenter.addObserver(self, selector: "handleKeyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: "handleKeyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         textView.keyboardDismissMode = .Interactive
+        textView.delegate = self
+//        textView.layoutManager.allowsNonContiguousLayout = false
         
         self.title = showTitle
 
@@ -35,8 +37,7 @@ class TextViewController: UIViewController {
         
         editToolBarViewController.view.frame.size.width = self.view.bounds.width
         editToolBarViewController.textView = self.textView
-//        textView.inputAccessoryView = editToolBarViewController.view
-        let tmpView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height:         editToolBarViewController.view.frame.size.height))
+        let tmpView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: editToolBarViewController.view.frame.size.height))
 
         tmpView.backgroundColor = UIColor.brownColor()
         tmpView.addSubview(editToolBarViewController.view)
@@ -60,6 +61,7 @@ class TextViewController: UIViewController {
             document?.openWithCompletionHandler({
                 (success: Bool) -> Void in
                 if success == true {
+
                     self.textView.text = self.document?.userText
                 }else {
                     print("fail to open file")
@@ -111,10 +113,42 @@ extension TextViewController {
         let keyboardRectAsObject = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         keyboardRectAsObject.getValue(&keyboardRect)
         textView.contentInset.bottom = keyboardRect.height
+
+        
+//        UIView.animateWithDuration(0.5) { () -> Void in
+//            self.navigationController?.navigationBar.frame.size.height = 0
+//            self.navigationController?.navigationBar.hidden = true
+//        }
+//        let transformY = view.bounds.height / 2 - self.navigationController?.navigationBar.bounds.height - size.height
+//        UIView.animateWithDuration(0.5,
+//            delay: 0,
+//            options: UIViewAnimationOptions.BeginFromCurrentState,
+//            animations: { () -> Void in
+////                UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+//                self.view.transform = CGAffineTransformMakeTranslation(0, 64)
+//            }, completion: { (let completion) -> Void in
+//        })
+
     }
     
     func handleKeyboardWillHide(notification: NSNotification){
         keyboardRect = CGRectZero
         textView.contentInset.bottom = keyboardRect.height
+//                self.navigationController?.navigationBar.hidden = false
+    }
+}
+
+extension TextViewController: UITextViewDelegate {
+    func textViewDidChange(textView: UITextView) {
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = 5
+//        
+//        let attributes = [
+//            NSFontAttributeName: UIFont.systemFontOfSize(16),
+//            NSParagraphStyleAttributeName: paragraphStyle
+//        ]
+//        
+//        textView.attributedText = NSAttributedString(string: textView.text, attributes: attributes)
+        
     }
 }

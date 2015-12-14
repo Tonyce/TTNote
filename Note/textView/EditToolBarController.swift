@@ -21,7 +21,6 @@ class EditToolBarController: UIViewController {
         toolbar.barTintColor = UIColor(red: 209 / 255, green: 213 / 255, blue: 219 / 255, alpha: 1.0)
 //        textView = meEditViewController.textView
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,3 +125,4 @@ class EditToolBarController: UIViewController {
         textView.selectedRange = range
     }
 }
+

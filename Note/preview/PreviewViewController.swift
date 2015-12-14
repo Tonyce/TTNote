@@ -24,13 +24,12 @@ class PreviewViewController: UIViewController {
     var documentUrl: NSURL?
     var markdownStr: String = ""
     var htmlStr: String = ""
-    var convertStr: String?
     
     let filemgr = NSFileManager.defaultManager()
 
     @IBOutlet weak var rightItemBtn: UIBarButtonItem!
-    @IBOutlet weak var htmlBtn: UIButton!
-    @IBOutlet weak var htmlTop: NSLayoutConstraint!
+    // @IBOutlet weak var htmlBtn: UIButton!
+    // @IBOutlet weak var htmlTop: NSLayoutConstraint!
     @IBOutlet weak var ePubTop: NSLayoutConstraint!
     @IBOutlet weak var ePubBtn: UIButton!
     @IBOutlet weak var pdfTop: NSLayoutConstraint!
@@ -39,15 +38,20 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        
         self.automaticallyAdjustsScrollViewInsets = false
         initPreViewBtns()
+        uiWebView.scrollView.delegate = self
+        rightItemBtn.title = "另存为"
         addWebViewToView()
         if markdownStr != "" {
             markdownStr = markdownStr.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
             markdownStr = markdownStr.stringByReplacingOccurrencesOfString("\'", withString: "\\'")
             markdownStr = markdownStr.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
         }
-        // print(markdownStr)
+
         parserMarkdownStrToHtml(markdownStr) {
             (htmlStr) -> Void in
             self.loadModelHtml(htmlStr)
@@ -62,10 +66,7 @@ class PreviewViewController: UIViewController {
     // MARK: - WKWebView init
     func addWebViewToView() {
         webView = WKWebView(frame: CGRectZero)
-//        uiWebView = UIWebView(frame: CGRectZero)
         uiWebView.backgroundColor = UIColor.whiteColor()
-//        view.insertSubview(uiWebView, atIndex: 0)
-//        uiWebView.setConstraints(view, top: 0)
     }
     
     // MARK: - loadHtml
@@ -75,12 +76,18 @@ class PreviewViewController: UIViewController {
         do {
             htmlModel = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         }catch _ {}
+        
+        var css: String = ""
+        let cssPath = NSBundle.mainBundle().pathForResource("dark.min", ofType: "css")
+        do {
+            css = try String(contentsOfFile: cssPath!, encoding: NSUTF8StringEncoding)
+        }catch _ {}
 
 
-        self.htmlStr = render(htmlModel, dict: [ "content": html ])
+        self.htmlStr = render(htmlModel, dict: [ "content": html,
+                                                 "highlightCss": css
+                                                ])
         uiWebView.loadHTMLString(self.htmlStr, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
-        self.convertStr = uiWebView.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName(\"content\")")
-        // webView.loadHTMLString(htmlStr, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
     }
     
     func render (var str: String, dict: Dictionary<String, String>) -> String {
@@ -108,39 +115,30 @@ class PreviewViewController: UIViewController {
             callback(htmlStr: resultStr as! String)
         }
     }
-    
-    /*
-    @IBAction func publishArticle(sender: UIBarButtonItem) {
-        Article.sharedInstance.postArticleToServer {
-            result in
-            if result == true {
-                // print("success")
-                // Article.sharedInstance.resetArticle()
-                self.publishSuccessDelegate?.publicSuccess()
-                // self.navigationController?.popViewControllerAnimated(true)
-            }else {
-                print("fail....")
-            }
-            
-        }
-    }
-    */
 }
 
 
 extension PreviewViewController {
     
     func initPreViewBtns() {
-        htmlBtn.alpha = 0
-        htmlTop.constant = 0
+        // htmlBtn.alpha = 0
+        // htmlTop.constant = 0
         ePubBtn.alpha = 0
         ePubTop.constant = 0
         pdfBtn.alpha = 0
         pdfTop.constant = 0
         
         
-        htmlBtn.setCircleRadius()
-        htmlBtn.setShadow()
+        // htmlBtn.setCircleRadius()
+        // htmlBtn.setShadow()
+        ePubBtn.titleLabel?.font = UIFont(name: "googleicon", size: 25)
+        ePubBtn.setTitle(GoogleIcon.ebe8, forState: UIControlState.Normal)
+        ePubBtn.backgroundColor = UIColor.MKColor.LightBlue
+        ePubBtn.tintColor = UIColor.whiteColor()
+
+        pdfBtn.backgroundColor = UIColor.MKColor.LightBlue
+        pdfBtn.tintColor = UIColor.whiteColor()
+
         ePubBtn.setCircleRadius()
         ePubBtn.setShadow()
         pdfBtn.setShadow()
@@ -150,7 +148,7 @@ extension PreviewViewController {
     }
     
     @IBAction func rigthItemAction(sender: AnyObject) {
-        if htmlBtn.alpha == 1 {
+        if pdfBtn.alpha == 1 {
             hidenPreViewBtns()
         }else {
             showPreViewBtns()
@@ -160,11 +158,11 @@ extension PreviewViewController {
     func showPreViewBtns() {
         rightItemBtn.title = ""
         rightItemBtn.image = UIImage(named: "close")
-        htmlTop.constant = 20
+        // htmlTop.constant = 20
         ePubTop.constant = 20
         pdfTop.constant = 20
         UIView.animateWithDuration(0.3) { () -> Void in
-            self.htmlBtn.alpha = 1
+            // self.htmlBtn.alpha = 1
             self.ePubBtn.alpha = 1
             self.pdfBtn.alpha = 1
             self.view.layoutIfNeeded()
@@ -172,13 +170,13 @@ extension PreviewViewController {
     }
     
     func hidenPreViewBtns() {
-        rightItemBtn.title = "保存"
+        rightItemBtn.title = "另存为"
         rightItemBtn.image = nil
-        htmlTop.constant = 0
+        // htmlTop.constant = 0
         ePubTop.constant = 0
         pdfTop.constant = 0
         UIView.animateWithDuration(0.3) { () -> Void in
-            self.htmlBtn.alpha = 0
+            // self.htmlBtn.alpha = 0
             self.ePubBtn.alpha = 0
             self.pdfBtn.alpha = 0
             self.view.layoutIfNeeded()
@@ -190,18 +188,28 @@ extension PreviewViewController {
     
     @IBAction func saveToPDF(sender: AnyObject) {
         let html = self.uiWebView.stringByEvaluatingJavaScriptFromString("document.documentElement.innerHTML")!
+//        let htmlHeightStr = self.uiWebView.stringByEvaluatingJavaScriptFromString("document.body.scrollHeight")!
+//        let htmlHeight =  Double(htmlHeightStr)
+//        print(htmlHeight)
 
         let fmt = UIMarkupTextPrintFormatter(markupText: html)
         
         // 2. Assign print formatter to UIPrintPageRenderer
         
         let render = UIPrintPageRenderer()
+        render.headerHeight = 30
+        render.footerHeight = 30
         render.addPrintFormatter(fmt, startingAtPageAtIndex: 0)
         
         // 3. Assign paperRect and printableRect
         
-        let page = CGRect(x: 40, y: 30, width: 595.2, height: 841.8) // A4, 72 dpi
-        let printable = CGRectInset(page, 0, 0)
+        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8) // A4, 72 dpi
+//        let printable = CGRectInset(page, 0, 0)
+//        printable.size.width -= 20
+//        printable.size.height -= 20
+        let printable = CGRect(x: 40, y: 0, width: 525, height: 800)
+        
+//        print(printable)
         
         render.setValue(NSValue(CGRect: page), forKey: "paperRect")
         render.setValue(NSValue(CGRect: printable), forKey: "printableRect")
@@ -213,7 +221,7 @@ extension PreviewViewController {
         
 
         for i in 1...render.numberOfPages() {
-            UIGraphicsBeginPDFPage();
+            UIGraphicsBeginPDFPage()
             let bounds = UIGraphicsGetPDFContextBounds()
             render.drawPageAtIndex(i - 1, inRect: bounds)
         }
@@ -231,8 +239,20 @@ extension PreviewViewController {
         let fileWithoutExtension = documentUrl.URLByDeletingPathExtension
         let pdfFile = fileWithoutExtension?.URLByAppendingPathExtension("pdf")
 
-        pdfData.writeToURL(pdfFile!, atomically: true)
-        print("save success...\(pdfFile)")
+        if pdfData.writeToURL(pdfFile!, atomically: true) == true {
+            self.view.makeToast(message: "保存成功", duration: 1.0, position: HRToastPositionCenter)
+        }else {
+            self.view.makeToast(message: "保存失败")
+        }
+//        print("save success...\(pdfFile)")
         hidenPreViewBtns()
+    }
+}
+
+extension PreviewViewController:  UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if pdfBtn.alpha == 1 {
+            hidenPreViewBtns()
+        }
     }
 }

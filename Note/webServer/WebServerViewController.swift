@@ -13,19 +13,22 @@ import GCDWebServer
 class WebServerViewController: UIViewController {
     
     @IBOutlet weak var webLabel: UILabel!
+    @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
+    
+    weak var delegate: LeftMenuProtocol?
+    
     var webServer: GCDWebUploader?
     override func viewDidLoad() {
         super.viewDidLoad()
        
-
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first
+        closeBtn.backgroundColor = UIColor.clearColor()
+        closeBtn.titleLabel?.font = UIFont(name: "googleicon", size: 21)
+        closeBtn.setTitle(GoogleIcon.ebd0, forState: UIControlState.Normal)
         
-        webServer = GCDWebUploader(uploadDirectory: documentsPath)
-        webServer?.delegate = self
-        
-        if webServer?.startWithPort(8080, bonjourName: "GCD Web Server") == true {
-            webLabel.text = "\(webServer!.serverURL)"
-        }
+        menuBtn.backgroundColor = UIColor.clearColor()
+        menuBtn.titleLabel?.font = UIFont(name: "googleicon", size: 22)
+        menuBtn.setTitle(GoogleIcon.ea6d, forState: UIControlState.Normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,21 +36,41 @@ class WebServerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first
+        
+        if webServer == nil {
+            webServer = GCDWebUploader(uploadDirectory: documentsPath)
+        }
+        webServer?.delegate = self
+        
+        guard let server = webServer else {
+            webLabel.text = "请确保您已经接入wifi局域网"
+            return
+        }
+        
+        if server.startWithPort(8080, bonjourName: "GCD Web Server") == true {
+            if server.serverURL != nil {
+                webLabel.text = "\(webServer!.serverURL)"
+            } else {
+                webLabel.text = "请确保您已经接入wifi局域网"
+            }
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         webServer?.stop()
+        webServer = nil
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func menu(sender: AnyObject) {
+        self.slideMenuController()?.toggleLeft()
     }
-    */
-
+    
+    @IBAction func close(sender: AnyObject) {
+        delegate?.changeViewController(LeftMenu.Note)
+    }
 }
 
 

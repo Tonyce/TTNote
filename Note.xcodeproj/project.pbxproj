@@ -17,6 +17,15 @@
 		BE0797FA1C169B71008D475C /* preview.html in Resources */ = {isa = PBXBuildFile; fileRef = BE0797F51C169B71008D475C /* preview.html */; };
 		BE0797FC1C16EB33008D475C /* myicomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE0797FB1C16EB33008D475C /* myicomoon.ttf */; };
 		BE0797FE1C16EB66008D475C /* IcoMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0797FD1C16EB66008D475C /* IcoMoon.swift */; };
+		BE1BFF081C1AC95100AA77E9 /* SetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1BFF071C1AC95100AA77E9 /* SetViewCell.swift */; };
+		BE1BFF0A1C1BFB5700AA77E9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1BFF091C1BFB5700AA77E9 /* PopupViewController.swift */; };
+		BE248F2F1C17EDD900609600 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */; };
+		BE248F321C1836D100609600 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F311C1836D100609600 /* HelpViewController.swift */; };
+		BE248F341C18375D00609600 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F331C18375D00609600 /* FeedbackViewController.swift */; };
+		BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */; };
+		BE7854DD1C1E9E9000C42EFC /* NamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */; };
+		BE7854DF1C1EA70200C42EFC /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DE1C1EA70200C42EFC /* SettingModel.swift */; };
+		BE7854E11C1EAE4D00C42EFC /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = BE7854E01C1EAE4D00C42EFC /* help.html */; };
 		BE7E463B1C157454006A40F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E463A1C157454006A40F2 /* AppDelegate.swift */; };
 		BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E463C1C157454006A40F2 /* ViewController.swift */; };
 		BE7E46401C157454006A40F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7E463E1C157454006A40F2 /* Main.storyboard */; };
@@ -52,6 +61,15 @@
 		BE0797F51C169B71008D475C /* preview.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = preview.html; sourceTree = "<group>"; };
 		BE0797FB1C16EB33008D475C /* myicomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = myicomoon.ttf; sourceTree = "<group>"; };
 		BE0797FD1C16EB66008D475C /* IcoMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcoMoon.swift; sourceTree = "<group>"; };
+		BE1BFF071C1AC95100AA77E9 /* SetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewCell.swift; sourceTree = "<group>"; };
+		BE1BFF091C1BFB5700AA77E9 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
+		BE248F311C1836D100609600 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		BE248F331C18375D00609600 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPopupViewController.swift; sourceTree = "<group>"; };
+		BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePopupViewController.swift; sourceTree = "<group>"; };
+		BE7854DE1C1EA70200C42EFC /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		BE7854E01C1EAE4D00C42EFC /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		BE7E46371C157453006A40F2 /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7E463A1C157454006A40F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7E463C1C157454006A40F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +150,36 @@
 			path = preview;
 			sourceTree = "<group>";
 		};
+		BE1BFF061C1AC92F00AA77E9 /* setView */ = {
+			isa = PBXGroup;
+			children = (
+				BE0797E41C16899E008D475C /* SettingViewController.swift */,
+				BE1BFF091C1BFB5700AA77E9 /* PopupViewController.swift */,
+				BE1BFF071C1AC95100AA77E9 /* SetViewCell.swift */,
+				BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */,
+				BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */,
+				BE7854DE1C1EA70200C42EFC /* SettingModel.swift */,
+			);
+			name = setView;
+			sourceTree = "<group>";
+		};
+		BE248F301C1836B200609600 /* helpView */ = {
+			isa = PBXGroup;
+			children = (
+				BE248F311C1836D100609600 /* HelpViewController.swift */,
+				BE7854E01C1EAE4D00C42EFC /* help.html */,
+			);
+			name = helpView;
+			sourceTree = "<group>";
+		};
+		BE7854E21C1EAFAD00C42EFC /* feedbackView */ = {
+			isa = PBXGroup;
+			children = (
+				BE248F331C18375D00609600 /* FeedbackViewController.swift */,
+			);
+			name = feedbackView;
+			sourceTree = "<group>";
+		};
 		BE7E462E1C157453006A40F2 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +201,9 @@
 		BE7E46391C157453006A40F2 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				BE7854E21C1EAFAD00C42EFC /* feedbackView */,
+				BE1BFF061C1AC92F00AA77E9 /* setView */,
+				BE248F301C1836B200609600 /* helpView */,
 				BEECB17B1C17426E003A34B0 /* webServerView */,
 				BE0797F01C169B4F008D475C /* preview */,
 				BE0797EF1C1694C9008D475C /* textView */,
@@ -161,7 +212,6 @@
 				BE7E463A1C157454006A40F2 /* AppDelegate.swift */,
 				BE7E463C1C157454006A40F2 /* ViewController.swift */,
 				BE7E465E1C15AD81006A40F2 /* ItemCell.swift */,
-				BE0797E41C16899E008D475C /* SettingViewController.swift */,
 				BE7E463E1C157454006A40F2 /* Main.storyboard */,
 				BE7E46411C157454006A40F2 /* Assets.xcassets */,
 				BE7E46431C157454006A40F2 /* LaunchScreen.storyboard */,
@@ -174,6 +224,7 @@
 		BE7E46621C15CD63006A40F2 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */,
 				BE0797FB1C16EB33008D475C /* myicomoon.ttf */,
 				BE0797FD1C16EB66008D475C /* IcoMoon.swift */,
 				BEC92B841C167FC900A2645C /* SlideMenuController.swift */,
@@ -270,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */,
+				BE7854E11C1EAE4D00C42EFC /* help.html in Resources */,
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
 				BE0797F71C169B71008D475C /* marked.min.js in Resources */,
 				BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */,
@@ -338,26 +390,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1BFF0A1C1BFB5700AA77E9 /* PopupViewController.swift in Sources */,
 				BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */,
 				BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */,
 				BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */,
 				BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */,
+				BE248F341C18375D00609600 /* FeedbackViewController.swift in Sources */,
+				BE7854DD1C1E9E9000C42EFC /* NamePopupViewController.swift in Sources */,
 				BE0797E71C168E39008D475C /* LeftViewCell.swift in Sources */,
 				BE0797F61C169B71008D475C /* PreviewViewController.swift in Sources */,
 				BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */,
 				BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */,
 				BEECB17D1C1742C7003A34B0 /* WebServerViewController.swift in Sources */,
+				BE7854DF1C1EA70200C42EFC /* SettingModel.swift in Sources */,
 				BE0797E51C16899E008D475C /* SettingViewController.swift in Sources */,
 				BE7E464D1C157498006A40F2 /* ButtonComponent.swift in Sources */,
+				BE248F321C1836D100609600 /* HelpViewController.swift in Sources */,
 				BEECB1791C1731EF003A34B0 /* EditToolBarController.swift in Sources */,
 				BEC92B811C15EC6E00A2645C /* UIViewController.swift in Sources */,
 				BEC92B851C167FC900A2645C /* SlideMenuController.swift in Sources */,
 				BE0797FE1C16EB66008D475C /* IcoMoon.swift in Sources */,
 				BE7E46541C157EC3006A40F2 /* GoogleIcon.swift in Sources */,
 				BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */,
+				BE1BFF081C1AC95100AA77E9 /* SetViewCell.swift in Sources */,
 				BE7E465D1C15A2C2006A40F2 /* MyDocument.swift in Sources */,
 				BE7E463B1C157454006A40F2 /* AppDelegate.swift in Sources */,
 				BE7E46511C157BC7006A40F2 /* ColorComponent.swift in Sources */,
+				BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */,
+				BE248F2F1C17EDD900609600 /* HRToast+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

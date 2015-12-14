@@ -1,39 +1,45 @@
 //
-//  PDFViewController.swift
+//  NamePopupViewController.swift
 //  Note
 //
-//  Created by D_ttang on 15/12/8.
+//  Created by D_ttang on 15/12/14.
 //  Copyright © 2015年 D_ttang. All rights reserved.
 //
 
 import UIKit
-import M13PDFKit
 
-class PDFViewController: PDFKBasicPDFViewer {
-    
-    var documentUrl: NSURL?
-    var showTitle: String?
+protocol SelectNameDelegate: class {
+    func selectName(name: String)
+}
+
+class NamePopupViewController: PopupViewController {
+
+    var delegate: SelectNameDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
-//        self.enableOpening = false
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        self.title = showTitle
-        
-        let document: PDFKDocument = PDFKDocument(contentsOfFile: documentUrl?.path!, password: nil)
-
-        self.loadDocument(document)
     }
     
+    @IBAction func selectNameAction(sender: AnyObject) {
+        delegate?.selectName("未命名")
+        dismissViewControllerAnimated(true) {
+            _ in
+        }
+    }
 
+    @IBAction func yyMMddAction(sender: AnyObject) {
+        delegate?.selectName("yy-MM-dd")
+        dismissViewControllerAnimated(true) {
+            _ in
+        }
+    }
     /*
     // MARK: - Navigation
 

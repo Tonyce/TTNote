@@ -38,6 +38,14 @@ class ItemCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func willTransitionToState(state: UITableViewCellStateMask) {
+        super.willTransitionToState(state)
+//        UITableViewCellStateMask.ShowingDeleteConfirmationMask
+//        if state == UITableViewCellStateMask.ShowingDeleteConfirmationMask {
+//            
+//        }
+    }
+    
     func setUpCell() {
         guard let itemInfo = itemInfo else {
             return
@@ -47,12 +55,16 @@ class ItemCell: UITableViewCell {
         let itemType = itemInfo["NSFileType"] as? String
         let itemName = itemInfo["NSFileName"] as? String
         self.documentUrl = itemInfo["documentUrl"] as? NSURL
+        // let date = itemInfo["NSFileModificationDate"] as? NSDate
+
         
         let size = itemInfo["NSFileSize"] as? Double
         self.sizeLabel.text = "\(String(format:"%.3f", size! / 1024)) KB"
         
         nameLabel.text = itemName
         if itemType == "NSFileTypeRegular" {
+//            self.timeLabel.text = date!.getTimeStrWithFormate()
+            self.timeLabel.text = ""
             if self.documentUrl?.pathExtension == "txt" {
                 self.fileType = "txt"
                 if size > 0 {
@@ -65,7 +77,9 @@ class ItemCell: UITableViewCell {
                 self.fileType = "pdf"
                 iconLabel.text = MyIcoMoon.e903
             }
+//            self.accessoryType = UITableViewCellAccessoryType.DetailButton
         }else {
+            self.timeLabel.text = ""
             var directoryContents = []
             do {
                 directoryContents = try filemgr.contentsOfDirectoryAtURL(documentUrl!, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
@@ -80,12 +94,7 @@ class ItemCell: UITableViewCell {
             self.isDir = true
         }
         
-        let date = itemInfo["NSFileModificationDate"] as? NSDate
-        self.timeLabel.text = date!.getTimeStrWithFormate()
-
-        
         self.title = itemName
-
     }
 }
 

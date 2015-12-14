@@ -26,6 +26,10 @@ public struct SlideMenuOptions {
 }
 
 public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
+    
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
     public enum SlideAction {
         case Open

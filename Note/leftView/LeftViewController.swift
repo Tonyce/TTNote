@@ -11,29 +11,46 @@ import UIKit
 enum LeftMenu: Int {
     case Note = 0
     case WebServer
+    case help
+    case feedback
     case Setting
 }
 
-class LeftViewController: UIViewController {
+protocol LeftMenuProtocol : class {
+    func changeViewController(menu: LeftMenu)
+}
+
+class LeftViewController: UIViewController, LeftMenuProtocol {
 
     
     @IBOutlet weak var tableView: UITableView!
     let tableData = [
         ["icon": GoogleIcon.e920, "name":"Note"],
-        ["icon": GoogleIcon.e920, "name":"文件传输"],
-        ["icon": GoogleIcon.e6c5, "name":"Setting"]
+        ["icon": GoogleIcon.ec2e, "name":"wifi文件传输"],
+        ["icon": GoogleIcon.e66a, "name":"帮助"],
+        ["icon": GoogleIcon.e6f5, "name":"反馈"],
+        ["icon": GoogleIcon.e6c5, "name":"设置"]
     ]
     var mainViewController: UIViewController!
-    var webServerViewController: UIViewController?
-    var settingViewController: UIViewController?
+    var webServerViewController: WebServerViewController?
+    var settingViewController: SettingViewController?
+    var feedbackViewController: FeedbackViewController?
+    var helpViewController: HelpViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        settingViewController = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
-        webServerViewController = storyboard.instantiateViewControllerWithIdentifier("WebServerViewController") as! WebServerViewController
+        settingViewController = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as? SettingViewController
+        settingViewController!.delegate = self
+        webServerViewController = storyboard.instantiateViewControllerWithIdentifier("WebServerViewController") as? WebServerViewController
+        webServerViewController!.delegate = self
+        feedbackViewController = storyboard.instantiateViewControllerWithIdentifier("FeedbackViewController") as? FeedbackViewController
+        feedbackViewController?.delegate = self
+        helpViewController = storyboard.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
+        helpViewController?.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,16 +74,37 @@ extension LeftViewController: UITableViewDataSource, UITableViewDelegate {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             self.changeViewController(menu)
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func changeViewController(menu: LeftMenu) {
         switch menu {
         case .Note:
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+
         case .WebServer:
             self.slideMenuController()?.changeMainViewController(self.webServerViewController!, close: true)
+        case .help:
+            self.slideMenuController()?.changeMainViewController(self.helpViewController!, close: true)
+        case .feedback:
+            self.slideMenuController()?.changeMainViewController(self.feedbackViewController!, close: true)
         case .Setting:
             self.slideMenuController()?.changeMainViewController(self.settingViewController!, close: true)
+
         }
+    }
+}
+
+extension LeftViewController {
+    @IBAction func displayLogin(sender: AnyObject) {
+        displayAlert("")
+    }
+    func displayAlert(message: String){
+        let alertController = UIAlertController(title: "退出？", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.Default,handler: {
+            _ in
+        }))
+        // self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

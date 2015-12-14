@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import M13PDFKit
 
 class ViewController: UIViewController {
     
@@ -29,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
         initButton()
         tableView.tableFooterView = UIView()
         tableData = []
@@ -63,6 +66,11 @@ class ViewController: UIViewController {
         }
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    // MARK: - PrepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
         
@@ -78,22 +86,6 @@ class ViewController: UIViewController {
             pdfViewController.showTitle = cell?.title
         }
     }
-    
-
-//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-//        
-//    }
-//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-//        let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
-//        
-//        if identifier == "textSegue" {
-//            if cell?.fileType != "txt" {
-//                return false
-//            }
-//        }
-//        return true
-//        
-//    }
 
 }
 
@@ -184,17 +176,20 @@ extension ViewController {
         
         alertController.addTextFieldWithConfigurationHandler {
             (textField: UITextField) -> Void in
-            textField.placeholder = name
+//            textField.placeholder = name
+            if isFile == true {
+                textField.text = NSDate.getTimeStrWithFormate("yy-MM-dd")
+            }else {
+                textField.placeholder = name
+            }
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .Default) { (alertAction) -> Void in
-            print("You tapped cancel")
-
+            self.noAdding()
         }
         
         let ok = UIAlertAction(title: "OK", style: .Default) { (alertAction) -> Void in
             let name = alertController.textFields?.first?.text
-            print("You tapped OK \(name!)")
             self.noAdding()
             if isFile == true {
                 self.handleFile(name!)
@@ -292,6 +287,7 @@ extension ViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        /*
         if editingStyle == .Delete {
             // Delete the row from the data source
             
@@ -309,6 +305,34 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         } else if editingStyle == .Insert {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        */
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "删除") {
+            (action , indexPath ) -> Void in
+            // self.editing = false
+            // print("deleteAction button pressed")
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as? ItemCell
+            let documentUrl = cell?.documentUrl
+            let removeSuccess = self.removeDocument(documentUrl!)
+            if removeSuccess == true {
+                self.tableData.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }else {
+                print("fail...")
+            }
+        }
+        
+        let infoAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "详情") {
+            (action , indexPath) -> Void in
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as? ItemCell
+            guard let info = cell?.itemInfo else {
+                return
+            }
+            self.displayAlert(info)
+        }
+        return [deleteAction, infoAction]
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -345,27 +369,22 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension ViewController {
+    func displayAlert(messages: [String: AnyObject]) {
+        let title = messages["NSFileName"] as? String
 
-
-
-//let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-//
-//let margin:CGFloat = 8.0
-//let rect = CGRectMake(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
-//let customView = UIView(frame: rect)
-//
-//customView.backgroundColor = UIColor.greenColor()
-//alertController.view.addSubview(customView)
-//
-//let somethingAction = UIAlertAction(title: "Something", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in print("something")})
-//
-//let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-//
-//alertController.addAction(somethingAction)
-//alertController.addAction(cancelAction)
-//
-//self.presentViewController(alertController, animated: true, completion:{})
-//
-//["NSFileSystemFileNumber": 91669281, "NSFileExtensionHidden": 0, "NSFileModificationDate": 2015-12-07 11:41:14 +0000, "NSFileGroupOwnerAccountID": 20, "NSFileName": test, "NSFileOwnerAccountID": 502, "NSFileSize": 68, "NSFileCreationDate": 2015-12-07 11:41:14 +0000, "NSFileSystemNumber": 16777221, "documentUrl": file:///Users/d_ttang/Library/Developer/CoreSimulator/Devices/09A5D085-CA79-4995-8308-D825472F9F4E/data/Containers/Data/Application/F8928A05-A891-4425-9B5F-9C19504DCA69/Documents/test/, "NSFilePosixPermissions": 493, "NSFileReferenceCount": 2, "NSFileGroupOwnerAccountName": staff, "NSFileType": NSFileTypeDirectory]
-//    ["NSFileSystemFileNumber": 91669279, "NSFileExtensionHidden": 0, "NSFileModificationDate": 2015-12-07 11:41:09 +0000, "NSFileGroupOwnerAccountID": 20, "NSFileName": test.txt, "NSFileOwnerAccountID": 502, "NSFileSize": 0, "NSFileCreationDate": 2015-12-07 11:41:09 +0000, "NSFileSystemNumber": 16777221, "documentUrl": file:///Users/d_ttang/Library/Developer/CoreSimulator/Devices/09A5D085-CA79-4995-8308-D825472F9F4E/data/Containers/Data/Application/F8928A05-A891-4425-9B5F-9C19504DCA69/Documents/test.txt, "NSFilePosixPermissions": 420, "NSFileReferenceCount": 1, "NSFileGroupOwnerAccountName": staff, "NSFileType": NSFileTypeRegular]
+        
+        let createTime = (messages["NSFileCreationDate"] as? NSDate)?.getTimeStrWithFormate()
+        let modifyTime = (messages["NSFileModificationDate"] as? NSDate)?.getTimeStrWithFormate()
+//        print(messages)
+        
+        let message = "文件创建时间：\(createTime!) \n上次修改时间：\(modifyTime!)"
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
+            _ in
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+}
 

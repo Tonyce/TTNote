@@ -162,10 +162,10 @@ class selfLoadingView: UIView {
 
 extension UIView {
     
-    func addCircleLayer(withColor color: UIColor, lineWidth: CGFloat = 6.0) {
+    func addCircleLayer(withColor color: UIColor, lineWidth: CGFloat = 6.0, bounds: CGRect) {
         let lineWidth: CGFloat = lineWidth
         let circleLayer = CAShapeLayer()
-        circleLayer.path = UIBezierPath(ovalInRect: self.bounds).CGPath
+        circleLayer.path = UIBezierPath(ovalInRect: bounds).CGPath
         circleLayer.strokeColor = color.CGColor
         circleLayer.lineWidth = lineWidth
         circleLayer.fillColor = UIColor.clearColor().CGColor
@@ -250,13 +250,13 @@ extension UIView {
 //    }
 }
 
-extension UIViewController {
-    func displayAlert(message: String){
-        let alertController = UIAlertController(title: "发生点小意外", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default,handler: {
-            _ in
-        }))
-        // self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-}
+//extension UIViewController {
+//    func displayAlert(message: String){
+//        let alertController = UIAlertController(title: "发生点小意外", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default,handler: {
+//            _ in
+//        }))
+//        // self.navigationController?.presentViewController(alertController, animated: true, completion: nil)
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//    }
+//}

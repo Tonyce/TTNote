@@ -1,38 +1,46 @@
 //
-//  PDFViewController.swift
+//  FormatPopupViewController.swift
 //  Note
 //
-//  Created by D_ttang on 15/12/8.
+//  Created by D_ttang on 15/12/14.
 //  Copyright © 2015年 D_ttang. All rights reserved.
 //
 
 import UIKit
-import M13PDFKit
 
-class PDFViewController: PDFKBasicPDFViewer {
-    
-    var documentUrl: NSURL?
-    var showTitle: String?
+protocol SelectFormatDelegate: class {
+    func selectFormat(name: String)
+}
+
+class FormatPopupViewController: PopupViewController {
+
+    var delegate: SelectFormatDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
-//        self.enableOpening = false
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        self.title = showTitle
-        
-        let document: PDFKDocument = PDFKDocument(contentsOfFile: documentUrl?.path!, password: nil)
-
-        self.loadDocument(document)
     }
     
+    
+    @IBAction func txtFormatAction(sender: AnyObject) {
+        delegate?.selectFormat(".txt")
+        dismissViewControllerAnimated(true) {
+            _ in
+        }
+    }
+    
+    @IBAction func mdFormatAction(sender: AnyObject) {
+        delegate?.selectFormat(".md")
+        dismissViewControllerAnimated(true) {
+            _ in
+        }
+    }
 
     /*
     // MARK: - Navigation
