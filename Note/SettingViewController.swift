@@ -36,6 +36,9 @@ class SettingViewController: UIViewController {
         menuBtn.titleLabel?.font = UIFont(name: "googleicon", size: 22)
         menuBtn.setTitle(GoogleIcon.ea6d, forState: UIControlState.Normal)
         
+        formatBtn.setTitle(SetConfig.sharedInstance.defaultFormat, forState: UIControlState.Normal)
+        nameBtn.setTitle(SetConfig.sharedInstance.defaultFileName, forState: UIControlState.Normal)
+        
         formatIcon.font = UIFont(name: "googleicon", size: 16)
         formatIcon.text = GoogleIcon.e96e
         formatIcon.textColor = UIColor.MKColor.LightBlue
@@ -85,12 +88,16 @@ extension SettingViewController: UIPopoverPresentationControllerDelegate {
 
 extension SettingViewController: SelectFormatDelegate {
     func selectFormat(name: String) {
+        SetConfig.sharedInstance.saveSystemConfig("defaultFormat", value: name)
+        SetConfig.sharedInstance.defaultFormat = name
         formatBtn.setTitle(name, forState: UIControlState.Normal)
     }
 }
 
 extension SettingViewController: SelectNameDelegate {
-    func selectName(name: String) {
+    func selectFileName(name: String) {
+        SetConfig.sharedInstance.saveSystemConfig("defaultFileName", value: name)
+        SetConfig.sharedInstance.defaultFileName = name
         nameBtn.setTitle(name, forState: UIControlState.Normal)
     }
 }

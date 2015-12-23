@@ -162,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="1510" y="194"/>
         </scene>
-        <!--Title-->
+        <!--Text-->
         <scene sceneID="MGP-25-H40">
             <objects>
                 <viewController id="XqV-QY-oDM" customClass="TextViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
@@ -190,7 +190,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Brc-bL-DSC" secondAttribute="trailing" constant="-20" id="yyG-eZ-hYi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="gJK-ui-k7I">
+                    <navigationItem key="navigationItem" title="Text" id="gJK-ui-k7I">
                         <barButtonItem key="rightBarButtonItem" title="预览" id="w5i-gZ-5f5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -201,9 +201,16 @@
                     <connections>
                         <outlet property="textView" destination="Brc-bL-DSC" id="t45-sX-cUY"/>
                         <outlet property="textViewBottom" destination="tTd-wX-rMm" id="2mT-jB-cHA"/>
+                        <outlet property="titleTap" destination="Hhm-0y-3JA" id="Khy-Ol-nKz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cku-3l-8ka" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Hhm-0y-3JA">
+                    <connections>
+                        <action selector="titleClick:" destination="XqV-QY-oDM" id="swD-cA-mvY"/>
+                        <outlet property="delegate" destination="XqV-QY-oDM" id="gqS-8M-IFD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2327" y="-58"/>
         </scene>
@@ -414,7 +421,7 @@
                                     <constraint firstAttribute="width" constant="30" id="iU7-G7-9Yi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="默认文件格式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNm-ke-rhb">
@@ -424,7 +431,7 @@
                                     <constraint firstAttribute="width" constant="180" id="j0e-Tg-uUN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="默认文件名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wF-AP-8ln">
@@ -434,7 +441,7 @@
                                     <constraint firstAttribute="height" constant="21" id="hJZ-rJ-V2l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USg-ZA-Ngy">
@@ -445,7 +452,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ydf-zw-JlZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -513,11 +520,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Hg9-qp-PId"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y5b-9z-OXC">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="175"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="175"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgw-8i-JKm">
-                                <rect key="frame" x="21" y="20" width="58" height="30"/>
+                                <rect key="frame" x="21" y="20" width="108" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RG3-Rb-3pr"/>
                                 </constraints>
@@ -527,7 +534,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj9-jd-9kN">
-                                <rect key="frame" x="21" y="70" width="58" height="30"/>
+                                <rect key="frame" x="21" y="70" width="108" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eF7-45-yxc"/>
                                 </constraints>
@@ -549,11 +556,11 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="100" height="175"/>
+                    <size key="freeformSize" width="150" height="175"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTY-Sc-Z9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="715.5"/>
+            <point key="canvasLocation" x="1090" y="722.5"/>
         </scene>
         <!--Name Popup View Controller-->
         <scene sceneID="8cG-cf-sZ4">
@@ -564,11 +571,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jhC-DD-HPX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QwO-Wx-gwD">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRh-fS-mWc">
-                                <rect key="frame" x="6" y="70" width="88" height="30"/>
+                                <rect key="frame" x="6" y="70" width="138" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Hpg-uz-UD9"/>
                                 </constraints>
@@ -579,7 +586,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQg-zH-qks">
-                                <rect key="frame" x="6" y="20" width="88" height="30"/>
+                                <rect key="frame" x="6" y="20" width="138" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7vO-3J-2FM"/>
                                 </constraints>
@@ -601,11 +608,11 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="100" height="150"/>
+                    <size key="freeformSize" width="150" height="150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yC6-ey-jQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1138" y="945"/>
+            <point key="canvasLocation" x="1090" y="993"/>
         </scene>
         <!--Web Server View Controller-->
         <scene sceneID="x1m-r3-HOX">
@@ -918,7 +925,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="CoG-g9-dZx" secondAttribute="bottom" id="4Kh-0V-Uwv"/>
                                     <constraint firstAttribute="trailing" secondItem="CoG-g9-dZx" secondAttribute="trailing" id="IXT-f1-IxG"/>

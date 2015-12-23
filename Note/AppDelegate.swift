@@ -9,11 +9,87 @@
 import UIKit
 //import SlideMenuControllerSwift
 
+@available(iOS 9.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // MARK: Static Properties
+    static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
 
+    /// Saved shortcut item used as a result of an app launch, used later when app is activated.
+    var launchedShortcutItem: UIApplicationShortcutItem?
+    // MARK: Types
+    enum ShortcutIdentifier: String {
+        case First
+        case Second
+        case Third
+        case Fourth
+        
+        // MARK: Initializers
+        
+        init?(fullType: String) {
+            guard let last = fullType.componentsSeparatedByString(".").last else {
+                return nil
+            }
+            
+            self.init(rawValue: last)
+        }
+        
+        // MARK: Properties
+        
+        var type: String {
+            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+        }
+    }
+    
+    @available(iOS 9.0, *)
+    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        var handled = false
+        
+        // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
+        guard ShortcutIdentifier(fullType: shortcutItem.type) != nil else { return false }
+        
+        guard let shortCutType = shortcutItem.type as String? else { return false }
+        
+        switch (shortCutType) {
+        case ShortcutIdentifier.First.type:
+            // Handle shortcut 1 (static).
+            handled = true
+            break
+        case ShortcutIdentifier.Second.type:
+            // Handle shortcut 2 (static).
+            handled = true
+            break
+        case ShortcutIdentifier.Third.type:
+            // Handle shortcut 3 (dynamic).
+            handled = true
+            break
+        case ShortcutIdentifier.Fourth.type:
+            // Handle shortcut 4 (dynamic).
+            handled = true
+            break
+        default:
+            break
+        }
+        
+//        // Construct an alert using the details of the shortcut used to open the application.
+//        let alertController = UIAlertController(title: "Shortcut Handled", message: "\"\(shortcutItem.localizedTitle)\"", preferredStyle: .Alert)
+//        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//        alertController.addAction(okAction)
+//        
+////         Display an alert indicating the shortcut selected from the home screen.
+        let slideMenuController = window!.rootViewController as! SlideMenuController
+        let nvc = slideMenuController.mainViewController as! UINavigationController
+        let viewController = nvc.viewControllers.first as! ViewController
+        viewController.presentAlert("文件名", isFile: true)
+        viewController.adding(0.2)
+
+        return handled
+    }
+    
+    // MARK: Application Life Cycle
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,7 +111,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
-        return true
+//        return true
+        
+        // Override point for customization after application launch.
+        var shouldPerformAdditionalDelegateHandling = true
+        
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            launchedShortcutItem = shortcutItem
+            
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        }
+        return shouldPerformAdditionalDelegateHandling
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -53,13 +141,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        guard let shortcut = launchedShortcutItem else {
+            return
+        }
+        
+        handleShortCutItem(shortcut)
+        launchedShortcutItem = nil
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    /*
+    Called when the user activates your application by selecting a shortcut on the home screen, except when
+    application(_:,willFinishLaunchingWithOptions:) or application(_:didFinishLaunchingWithOptions) returns `false`.
+    You should handle the shortcut in those callbacks and return `false` if possible. In that case, this
+    callback is used if your application is already launched in the background.
+    */
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) {
+        let handledShortCutItem = handleShortCutItem(shortcutItem)
+        
+        completionHandler(handledShortCutItem)
+    }
 }
 

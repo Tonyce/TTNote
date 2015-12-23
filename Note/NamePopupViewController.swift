@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SelectNameDelegate: class {
-    func selectName(name: String)
+    func selectFileName(name: String)
 }
 
 class NamePopupViewController: PopupViewController {
@@ -28,14 +28,14 @@ class NamePopupViewController: PopupViewController {
     }
     
     @IBAction func selectNameAction(sender: AnyObject) {
-        delegate?.selectName("未命名")
+        delegate?.selectFileName("未命名")
         dismissViewControllerAnimated(true) {
             _ in
         }
     }
 
     @IBAction func yyMMddAction(sender: AnyObject) {
-        delegate?.selectName("yy-MM-dd")
+        delegate?.selectFileName("yy-MM-dd")
         dismissViewControllerAnimated(true) {
             _ in
         }

@@ -16,7 +16,9 @@ class TextViewController: UIViewController {
     var showTitle: String?
     let filemgr = NSFileManager.defaultManager()
     var editToolBarViewController: EditToolBarController!
+    var titleButton: UIButton?
     
+    @IBOutlet var titleTap: UITapGestureRecognizer!
     @IBOutlet weak var textViewBottom: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
 
@@ -46,8 +48,65 @@ class TextViewController: UIViewController {
         handleFile()
     }
     
+    
+//    setBackButtonTitlePositionAdjustment
+    
+    override func viewWillAppear(animated: Bool) {
+        
+//        self.navigationItem.leftBarButtonItem?.title = " "
+//        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -60), forBarMetrics: UIBarMetrics.Default)
+        
+        
+        titleButton = UIButton(type: UIButtonType.Custom)
+        titleButton!.frame = CGRectMake(0, 4, 120, 40) as CGRect
+        titleButton!.backgroundColor = UIColor.clearColor()
+        titleButton!.titleLabel?.font = UIFont.boldSystemFontOfSize(17)
+        titleButton!.setTitle(self.title, forState: UIControlState.Normal)
+        titleButton!.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+
+        self.navigationController?.navigationBar.addGestureRecognizer(titleTap)
+    }
+    
+    @IBAction func titleClick(sender: AnyObject) {
+//    }
+//    func clickOnButton(button: UIButton) {
+
+        let name = self.documentUrl?.URLByDeletingPathExtension?.lastPathComponent
+        let alertController = UIAlertController(title: "重命名", message:"", preferredStyle:UIAlertControllerStyle.Alert)
+        alertController.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+            textField.text = name
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { (alertAction) -> Void in
+        }
+        
+        let ok = UIAlertAction(title: "OK", style: .Default) { (alertAction) -> Void in
+            
+            
+            let pathExtension = self.documentUrl?.pathExtension
+            let name = alertController.textFields?.first?.text
+            let newName = "\(name!).\(pathExtension!)"
+            // rename
+            let renameUrl = self.documentUrl?.URLByDeletingLastPathComponent?.URLByAppendingPathComponent(newName)
+//            var error: NSError?
+            do {
+                try self.filemgr.moveItemAtURL(self.documentUrl!, toURL: renameUrl!)
+            }catch {
+                fatalError()
+            }
+            self.title = newName
+//            self.titleButton?.setTitle(newName, forState: UIControlState.Normal)
+            self.documentUrl = renameUrl
+        }
+        alertController.addAction(cancel)
+        alertController.addAction(ok)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         saveText()
+        self.navigationController?.navigationBar.removeGestureRecognizer(titleTap)
     }
 
     
@@ -61,7 +120,6 @@ class TextViewController: UIViewController {
             document?.openWithCompletionHandler({
                 (success: Bool) -> Void in
                 if success == true {
-
                     self.textView.text = self.document?.userText
                 }else {
                     print("fail to open file")
@@ -151,4 +209,12 @@ extension TextViewController: UITextViewDelegate {
 //        textView.attributedText = NSAttributedString(string: textView.text, attributes: attributes)
         
     }
+}
+
+extension TextViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        return ((self.navigationController?.visibleViewController)! == self &&
+            (abs(touch.locationInView(self.navigationController?.navigationBar).x - (self.navigationController?.navigationBar.frame.width)!/2) < 50))
+    }
+
 }

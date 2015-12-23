@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+
         getItems()
         if self.showTitle != nil {
             self.removeNavigationBarItem()
@@ -74,7 +75,10 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
         
-        if cell?.fileType == "txt" {
+        let backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+        
+        if cell?.fileType == "txt" || cell?.fileType == "md" {
             let textViewController = segue.destinationViewController as! TextViewController
             textViewController.documentUrl = cell?.documentUrl
             textViewController.showTitle = cell?.title
@@ -176,9 +180,13 @@ extension ViewController {
         
         alertController.addTextFieldWithConfigurationHandler {
             (textField: UITextField) -> Void in
-//            textField.placeholder = name
+
             if isFile == true {
-                textField.text = NSDate.getTimeStrWithFormate("yy-MM-dd")
+                if SetConfig.sharedInstance.defaultFileName == "yy-MM-dd" {
+                    textField.text = NSDate.getTimeStrWithFormate("yy-MM-dd")
+                }else {
+                    textField.text = SetConfig.sharedInstance.defaultFileName
+                }
             }else {
                 textField.placeholder = name
             }
@@ -243,7 +251,7 @@ extension ViewController {
     }
     
     func handleFile(fileName: String) {
-        let newFileUrl = self.documentUrl?.URLByAppendingPathComponent("\(fileName).txt")
+        let newFileUrl = self.documentUrl?.URLByAppendingPathComponent("\(fileName)\(SetConfig.sharedInstance.defaultFormat)")
         let newFilePath = newFileUrl?.path
         
         guard let filePath = newFilePath else {
@@ -358,7 +366,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             viewController.showTitle = cell?.title
             self.navigationController?.pushViewController(viewController, animated: true)
         }else {
-            if cell?.fileType == "txt" {
+            if cell?.fileType == "txt" || cell?.fileType == "md" {
                 self.performSegueWithIdentifier("textSegue", sender: self)
             }else if cell?.fileType == "pdf" {
                 self.performSegueWithIdentifier("pdfSegue", sender: self)
@@ -373,10 +381,8 @@ extension ViewController {
     func displayAlert(messages: [String: AnyObject]) {
         let title = messages["NSFileName"] as? String
 
-        
         let createTime = (messages["NSFileCreationDate"] as? NSDate)?.getTimeStrWithFormate()
         let modifyTime = (messages["NSFileModificationDate"] as? NSDate)?.getTimeStrWithFormate()
-//        print(messages)
         
         let message = "文件创建时间：\(createTime!) \n上次修改时间：\(modifyTime!)"
         

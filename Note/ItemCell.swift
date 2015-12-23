@@ -65,8 +65,8 @@ class ItemCell: UITableViewCell {
         if itemType == "NSFileTypeRegular" {
 //            self.timeLabel.text = date!.getTimeStrWithFormate()
             self.timeLabel.text = ""
-            if self.documentUrl?.pathExtension == "txt" {
-                self.fileType = "txt"
+            if self.documentUrl?.pathExtension == "txt" || self.documentUrl?.pathExtension == "md" {
+                self.fileType = self.documentUrl?.pathExtension
                 if size > 0 {
                     iconLabel.text = MyIcoMoon.e906
                 }else {

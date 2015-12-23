@@ -25,6 +25,9 @@
 		BE248F2F1C17EDD900609600 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */; };
 		BE248F321C1836D100609600 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F311C1836D100609600 /* HelpViewController.swift */; };
 		BE248F341C18375D00609600 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE248F331C18375D00609600 /* FeedbackViewController.swift */; };
+		BE5592101C21084000B02B7A /* SetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE55920F1C21084000B02B7A /* SetConfig.swift */; };
+		BE5592121C210D4C00B02B7A /* SelfConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5592111C210D4C00B02B7A /* SelfConfig.swift */; };
+		BE6AB8421C2A50A200C3BA9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE6AB8441C2A50A200C3BA9D /* InfoPlist.strings */; };
 		BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */; };
 		BE7854DD1C1E9E9000C42EFC /* NamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */; };
 		BE7854DF1C1EA70200C42EFC /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DE1C1EA70200C42EFC /* SettingModel.swift */; };
@@ -70,6 +73,10 @@
 		BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		BE248F311C1836D100609600 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		BE248F331C18375D00609600 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		BE55920F1C21084000B02B7A /* SetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetConfig.swift; sourceTree = "<group>"; };
+		BE5592111C210D4C00B02B7A /* SelfConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfConfig.swift; sourceTree = "<group>"; };
+		BE6AB8431C2A50A200C3BA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE6AB8451C2A50B100C3BA9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPopupViewController.swift; sourceTree = "<group>"; };
 		BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePopupViewController.swift; sourceTree = "<group>"; };
 		BE7854DE1C1EA70200C42EFC /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -156,6 +163,8 @@
 		BE1BFF061C1AC92F00AA77E9 /* setView */ = {
 			isa = PBXGroup;
 			children = (
+				BE5592111C210D4C00B02B7A /* SelfConfig.swift */,
+				BE55920F1C21084000B02B7A /* SetConfig.swift */,
 				BE0797E41C16899E008D475C /* SettingViewController.swift */,
 				BE1BFF091C1BFB5700AA77E9 /* PopupViewController.swift */,
 				BE1BFF071C1AC95100AA77E9 /* SetViewCell.swift */,
@@ -220,6 +229,7 @@
 				BE7E46431C157454006A40F2 /* LaunchScreen.storyboard */,
 				BE7E46461C157454006A40F2 /* Info.plist */,
 				BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */,
+				BE6AB8441C2A50A200C3BA9D /* InfoPlist.strings */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -327,6 +337,7 @@
 				BE0A85791C1ECE120036FEBC /* note.md in Resources */,
 				BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */,
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
+				BE6AB8421C2A50A200C3BA9D /* InfoPlist.strings in Resources */,
 				BE0797F71C169B71008D475C /* marked.min.js in Resources */,
 				BEECB17A1C1731EF003A34B0 /* EditToolBarController.xib in Resources */,
 				BEECB17F1C17438E003A34B0 /* GCDWebUploader.bundle in Resources */,
@@ -405,6 +416,7 @@
 				BE0A85761C1EC9510036FEBC /* MarkDownParse.swift in Sources */,
 				BE0797F61C169B71008D475C /* PreviewViewController.swift in Sources */,
 				BE7E463D1C157454006A40F2 /* ViewController.swift in Sources */,
+				BE5592121C210D4C00B02B7A /* SelfConfig.swift in Sources */,
 				BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */,
 				BE0A85781C1ECDD00036FEBC /* note.md in Sources */,
 				BEECB17D1C1742C7003A34B0 /* WebServerViewController.swift in Sources */,
@@ -424,12 +436,22 @@
 				BE7E46511C157BC7006A40F2 /* ColorComponent.swift in Sources */,
 				BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */,
 				BE248F2F1C17EDD900609600 /* HRToast+UIView.swift in Sources */,
+				BE5592101C21084000B02B7A /* SetConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BE6AB8441C2A50A200C3BA9D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE6AB8431C2A50A200C3BA9D /* Base */,
+				BE6AB8451C2A50B100C3BA9D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		BE7E463E1C157454006A40F2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
