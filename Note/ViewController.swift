@@ -11,7 +11,7 @@ import M13PDFKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var dirBottom: NSLayoutConstraint!
+    @IBOutlet var dirBottom: NSLayoutConstraint!
     @IBOutlet weak var fileBottom: NSLayoutConstraint!
     @IBOutlet weak var addFileButton: UIButton!
     @IBOutlet weak var addDirButton: UIButton!
@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     
     var tableData: [[String: AnyObject]] = []
     var indexPathForSelectedRow: NSIndexPath?
+    var newFile = false
+    var newFileName: String?
+    var newFileUrl: NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-
+        newFile = false
         getItems()
         if self.showTitle != nil {
             self.removeNavigationBarItem()
@@ -73,21 +76,27 @@ class ViewController: UIViewController {
     
     // MARK: - PrepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
-        
-        let backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backItem
-        
-        if cell?.fileType == "txt" || cell?.fileType == "md" {
+        if newFile == true {
             let textViewController = segue.destinationViewController as! TextViewController
-            textViewController.documentUrl = cell?.documentUrl
-            textViewController.showTitle = cell?.title
-        }
-        
-        if cell?.fileType == "pdf" {
-            let pdfViewController = segue.destinationViewController as! PDFViewController
-            pdfViewController.documentUrl = cell?.documentUrl
-            pdfViewController.showTitle = cell?.title
+            textViewController.documentUrl = self.newFileUrl
+            textViewController.showTitle = self.newFileName
+        }else {
+            let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
+            
+            let backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+            navigationItem.backBarButtonItem = backItem
+            
+            if cell?.fileType == "txt" || cell?.fileType == "md" {
+                let textViewController = segue.destinationViewController as! TextViewController
+                textViewController.documentUrl = cell?.documentUrl
+                textViewController.showTitle = cell?.title
+            }
+            
+            if cell?.fileType == "pdf" {
+                let pdfViewController = segue.destinationViewController as! PDFViewController
+                pdfViewController.documentUrl = cell?.documentUrl
+                pdfViewController.showTitle = cell?.title
+            }
         }
     }
 
@@ -251,7 +260,8 @@ extension ViewController {
     }
     
     func handleFile(fileName: String) {
-        let newFileUrl = self.documentUrl?.URLByAppendingPathComponent("\(fileName)\(SetConfig.sharedInstance.defaultFormat)")
+        self.newFileName = "\(fileName)\(SetConfig.sharedInstance.defaultFormat)"
+        let newFileUrl = self.documentUrl?.URLByAppendingPathComponent(self.newFileName!)
         let newFilePath = newFileUrl?.path
         
         guard let filePath = newFilePath else {
@@ -262,7 +272,12 @@ extension ViewController {
             print("createFileAtPathFaile: \(filePath)")
             return
         }
-        getItems()
+//        getItems()
+        self.newFile = true
+        self.newFileUrl = newFileUrl
+
+        
+        self.performSegueWithIdentifier("textSegue", sender: self)
     }
     
     func handleDir(newDirName: String) {

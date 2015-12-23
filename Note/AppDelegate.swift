@@ -14,6 +14,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            var nvc: UINavigationController?
     
     // MARK: Static Properties
     static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
@@ -74,18 +77,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             break
         }
         
-//        // Construct an alert using the details of the shortcut used to open the application.
+        let alertController = UIAlertController(title: "", message:"", preferredStyle:UIAlertControllerStyle.Alert)
+        
+        alertController.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+            
+                if SetConfig.sharedInstance.defaultFileName == "yy-MM-dd" {
+                    textField.text = NSDate.getTimeStrWithFormate("yy-MM-dd")
+                }else {
+                    textField.text = SetConfig.sharedInstance.defaultFileName
+                }
+            
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { (alertAction) -> Void in
+
+        }
+        
+        let ok = UIAlertAction(title: "OK", style: .Default) { (alertAction) -> Void in
+            let name = alertController.textFields?.first?.text
+            let slideMenuController = self.window!.rootViewController as? SlideMenuController
+            let nvc = slideMenuController?.mainViewController as? UINavigationController
+            
+            let mainViewController = nvc?.topViewController as! ViewController
+            mainViewController.handleFile(name!)
+        }
+        
+        alertController.addAction(cancel)
+        
+        alertController.addAction(ok)
+        
+//        print(window!.rootViewController)
+//        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! ViewController
+//
+//        let slideMenuController = window!.rootViewController as? SlideMenuController
+//        nvc = slideMenuController?.mainViewController as? UINavigationController
+//        if nvc == nil {
+//            nvc = storyboard.instantiateViewControllerWithIdentifier("MainNav") as? UINavigationController
+//        }
+//                self.window?.makeKeyAndVisible()
+//        nvc!.showViewController(mainViewController, sender: nil)
+//                        mainViewController.presentAlert("", isFile: true)
+//        slideMenuController?.mainViewController = mainViewController
+
+
+        // Construct an alert using the details of the shortcut used to open the application.
 //        let alertController = UIAlertController(title: "Shortcut Handled", message: "\"\(shortcutItem.localizedTitle)\"", preferredStyle: .Alert)
 //        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
 //        alertController.addAction(okAction)
-//        
-////         Display an alert indicating the shortcut selected from the home screen.
-        let slideMenuController = window!.rootViewController as! SlideMenuController
-        let nvc = slideMenuController.mainViewController as! UINavigationController
-        let viewController = nvc.viewControllers.first as! ViewController
-        viewController.presentAlert("文件名", isFile: true)
-        viewController.adding(0.2)
-
+        
+        // Display an alert indicating the shortcut selected from the home screen.
+        window!.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+//        slideMenuController?.presentViewController(alertController, animated: true, completion: nil)
+        
         return handled
     }
     
@@ -94,26 +138,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-//        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! ViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-        
-        let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("MainNav") as! UINavigationController
-        
-//        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
-        
+        nvc = storyboard.instantiateViewControllerWithIdentifier("MainNav") as? UINavigationController
         leftViewController.mainViewController = nvc
         
-        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+        let slideMenuController = SlideMenuController(mainViewController:nvc!, leftMenuViewController: leftViewController)
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
-//        return true
-        
-        // Override point for customization after application launch.
+
         var shouldPerformAdditionalDelegateHandling = true
         
         // If a shortcut was launched, display its information and take the appropriate action
@@ -123,8 +157,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // This will block "performActionForShortcutItem:completionHandler" from being called.
             shouldPerformAdditionalDelegateHandling = false
         }
+        
+        if shouldPerformAdditionalDelegateHandling == true {
+            sleep(1)
+        }
         return shouldPerformAdditionalDelegateHandling
+//        return true
     }
+    
+//    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+//        // Override point for customization after application launch.
+//       
+//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
