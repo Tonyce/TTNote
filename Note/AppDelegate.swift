@@ -104,31 +104,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         alertController.addAction(cancel)
-        
         alertController.addAction(ok)
-        
-//        print(window!.rootViewController)
-//        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! ViewController
-//
-//        let slideMenuController = window!.rootViewController as? SlideMenuController
-//        nvc = slideMenuController?.mainViewController as? UINavigationController
-//        if nvc == nil {
-//            nvc = storyboard.instantiateViewControllerWithIdentifier("MainNav") as? UINavigationController
-//        }
-//                self.window?.makeKeyAndVisible()
-//        nvc!.showViewController(mainViewController, sender: nil)
-//                        mainViewController.presentAlert("", isFile: true)
-//        slideMenuController?.mainViewController = mainViewController
 
-
-        // Construct an alert using the details of the shortcut used to open the application.
-//        let alertController = UIAlertController(title: "Shortcut Handled", message: "\"\(shortcutItem.localizedTitle)\"", preferredStyle: .Alert)
-//        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//        alertController.addAction(okAction)
-        
         // Display an alert indicating the shortcut selected from the home screen.
         window!.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
-//        slideMenuController?.presentViewController(alertController, animated: true, completion: nil)
         
         return handled
     }

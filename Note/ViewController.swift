@@ -76,15 +76,14 @@ class ViewController: UIViewController {
     
     // MARK: - PrepareForSegue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
         if newFile == true {
             let textViewController = segue.destinationViewController as! TextViewController
             textViewController.documentUrl = self.newFileUrl
             textViewController.showTitle = self.newFileName
         }else {
             let cell = tableView.cellForRowAtIndexPath(indexPathForSelectedRow!) as? ItemCell
-            
-            let backItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-            navigationItem.backBarButtonItem = backItem
             
             if cell?.fileType == "txt" || cell?.fileType == "md" {
                 let textViewController = segue.destinationViewController as! TextViewController
@@ -276,7 +275,6 @@ extension ViewController {
         self.newFile = true
         self.newFileUrl = newFileUrl
 
-        
         self.performSegueWithIdentifier("textSegue", sender: self)
     }
     
