@@ -28,6 +28,9 @@
 		BE5592101C21084000B02B7A /* SetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE55920F1C21084000B02B7A /* SetConfig.swift */; };
 		BE5592121C210D4C00B02B7A /* SelfConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5592111C210D4C00B02B7A /* SelfConfig.swift */; };
 		BE6AB8421C2A50A200C3BA9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE6AB8441C2A50A200C3BA9D /* InfoPlist.strings */; };
+		BE71ED5E1C2BDF5D0065BBCD /* welcome.md in Sources */ = {isa = PBXBuildFile; fileRef = BE71ED5D1C2BDF5D0065BBCD /* welcome.md */; };
+		BE71ED5F1C2BDFE70065BBCD /* welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = BE71ED5D1C2BDF5D0065BBCD /* welcome.md */; };
+		BE71ED611C2C2FA00065BBCD /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71ED601C2C2FA00065BBCD /* Application.swift */; };
 		BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */; };
 		BE7854DD1C1E9E9000C42EFC /* NamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */; };
 		BE7854DF1C1EA70200C42EFC /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7854DE1C1EA70200C42EFC /* SettingModel.swift */; };
@@ -77,6 +80,8 @@
 		BE5592111C210D4C00B02B7A /* SelfConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfConfig.swift; sourceTree = "<group>"; };
 		BE6AB8431C2A50A200C3BA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE6AB8451C2A50B100C3BA9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE71ED5D1C2BDF5D0065BBCD /* welcome.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = welcome.md; sourceTree = "<group>"; };
+		BE71ED601C2C2FA00065BBCD /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		BE7854DA1C1E9E5E00C42EFC /* FormatPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPopupViewController.swift; sourceTree = "<group>"; };
 		BE7854DC1C1E9E9000C42EFC /* NamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePopupViewController.swift; sourceTree = "<group>"; };
 		BE7854DE1C1EA70200C42EFC /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -180,6 +185,7 @@
 			children = (
 				BE0A85771C1ECDD00036FEBC /* note.md */,
 				BE248F311C1836D100609600 /* HelpViewController.swift */,
+				BE71ED5D1C2BDF5D0065BBCD /* welcome.md */,
 			);
 			name = helpView;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 		BE7E46621C15CD63006A40F2 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				BE71ED601C2C2FA00065BBCD /* Application.swift */,
 				BE248F2E1C17EDD900609600 /* HRToast+UIView.swift */,
 				BE0797FB1C16EB33008D475C /* myicomoon.ttf */,
 				BE0797FD1C16EB66008D475C /* IcoMoon.swift */,
@@ -334,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE71ED5F1C2BDFE70065BBCD /* welcome.md in Resources */,
 				BE0A85791C1ECE120036FEBC /* note.md in Resources */,
 				BE7E46551C157EC3006A40F2 /* googleicon.ttf in Resources */,
 				BE7E46451C157454006A40F2 /* LaunchScreen.storyboard in Resources */,
@@ -407,6 +415,7 @@
 			files = (
 				BE1BFF0A1C1BFB5700AA77E9 /* PopupViewController.swift in Sources */,
 				BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */,
+				BE71ED611C2C2FA00065BBCD /* Application.swift in Sources */,
 				BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */,
 				BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */,
 				BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */,
@@ -436,6 +445,7 @@
 				BE7E46511C157BC7006A40F2 /* ColorComponent.swift in Sources */,
 				BE7854DB1C1E9E5E00C42EFC /* FormatPopupViewController.swift in Sources */,
 				BE248F2F1C17EDD900609600 /* HRToast+UIView.swift in Sources */,
+				BE71ED5E1C2BDF5D0065BBCD /* welcome.md in Sources */,
 				BE5592101C21084000B02B7A /* SetConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

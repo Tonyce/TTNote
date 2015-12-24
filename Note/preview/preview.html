@@ -7,11 +7,29 @@
     <title>preview</title>
     <style>
         * {
-            margin: 0;
-            font-weight: 100;
+<!--            margin: 0;-->
+<!--            font-weight: 100;-->
             -webkit-user-select: none;   /* 禁止选中文本(如无文本选中需求,此为必选项) */
             -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
         }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even){background-color: #f2f2f2}
+    
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+<!--
         body {
             margin: 0 4px;
         }
@@ -168,6 +186,7 @@
             margin: 0 5px;
             border-color:  #9E9E9E;
         }
+    -->
     
         {{highlightCss}}
     </style>

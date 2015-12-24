@@ -11,8 +11,8 @@ import UIKit
 enum LeftMenu: Int {
     case Note = 0
     case WebServer
-    case help
-    case feedback
+//    case help
+//    case feedback
     case Setting
 }
 
@@ -23,12 +23,13 @@ protocol LeftMenuProtocol : class {
 class LeftViewController: UIViewController, LeftMenuProtocol {
 
     
+    @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let tableData = [
         ["icon": GoogleIcon.e920, "name":"Note"],
         ["icon": GoogleIcon.ec2e, "name":"wifi文件传输"],
-        ["icon": GoogleIcon.e66a, "name":"帮助"],
-        ["icon": GoogleIcon.e6f5, "name":"反馈"],
+//        ["icon": GoogleIcon.e66a, "name":"帮助"],
+//        ["icon": GoogleIcon.e6f5, "name":"反馈"],
         ["icon": GoogleIcon.e6c5, "name":"设置"]
     ]
     var mainViewController: UIViewController!
@@ -40,6 +41,7 @@ class LeftViewController: UIViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        versionLabel.text = "version: \(UIApplication.appVersion())"
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         settingViewController = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as? SettingViewController
@@ -84,10 +86,10 @@ extension LeftViewController: UITableViewDataSource, UITableViewDelegate {
 
         case .WebServer:
             self.slideMenuController()?.changeMainViewController(self.webServerViewController!, close: true)
-        case .help:
-            self.slideMenuController()?.changeMainViewController(self.helpViewController!, close: true)
-        case .feedback:
-            self.slideMenuController()?.changeMainViewController(self.feedbackViewController!, close: true)
+//        case .help:
+//            self.slideMenuController()?.changeMainViewController(self.helpViewController!, close: true)
+//        case .feedback:
+//            self.slideMenuController()?.changeMainViewController(self.feedbackViewController!, close: true)
         case .Setting:
             self.slideMenuController()?.changeMainViewController(self.settingViewController!, close: true)
 

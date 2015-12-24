@@ -98,7 +98,13 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func tapViewAction(sender: AnyObject) {
+     
+        if isAdd == false {
+            self.noAdding()
+        }
+    }
 }
 
 // MARK: - Item Attributes in documentUrl
@@ -108,7 +114,6 @@ extension ViewController {
             return
         }
         do {
-            
             let directoryContents = try filemgr.contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
             self.getItemCatefory(directoryContents)
             

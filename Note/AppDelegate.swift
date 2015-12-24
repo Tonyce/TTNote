@@ -116,7 +116,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        if SetConfig.sharedInstance.isFristOpen == true {
+//            copyToDocument()
+            let bundleUrl = NSBundle.mainBundle().URLForResource("welcome", withExtension: ".md")
+            let documentsUrls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+            let documentUrl = documentsUrls.first
+            let welcomeMDUrl = documentUrl?.URLByAppendingPathComponent("welcome.md")
+            do {
+                try NSFileManager.defaultManager().copyItemAtURL(bundleUrl!, toURL: welcomeMDUrl! )
+            }catch _ {
+//                print("err")
+//                print(bundleUrl)
+//                print(welcomeMDUrl)
+            }
 
+            SetConfig.sharedInstance.isFristOpen = false
+            SetConfig.sharedInstance.saveSystemConfig("isFirstOpen", value: false)
+        }
+        
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
         nvc = storyboard.instantiateViewControllerWithIdentifier("MainNav") as? UINavigationController
         leftViewController.mainViewController = nvc

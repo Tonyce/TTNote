@@ -23,6 +23,7 @@ class SetConfig: NSObject {
 ////    var lastLoginTime: Int?
     var defaultFileName: String = "yy-MM-dd"
     var defaultFormat: String = ".md" // .txt
+    var isFristOpen: Bool = true
     
     class var sharedInstance: SetConfig {
         struct Singleton {
@@ -43,6 +44,10 @@ class SetConfig: NSObject {
             
             if let format = setConfigData["defaultFormat"] as? String {
                 defaultFormat = format
+            }
+            
+            if let isFrist = setConfigData["isFirstOpen"] as? Bool {
+                isFristOpen = isFrist
             }
         }
     }

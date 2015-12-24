@@ -155,7 +155,7 @@ extension PreviewViewController {
     }
     
     func showPreViewBtns() {
-        rightItemBtn.title = ""
+        rightItemBtn.title = "    "
         rightItemBtn.image = UIImage(named: "close")
         // htmlTop.constant = 20
         ePubTop.constant = 20
