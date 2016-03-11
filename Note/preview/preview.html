@@ -7,186 +7,186 @@
     <title>preview</title>
     <style>
         * {
-<!--            margin: 0;-->
-<!--            font-weight: 100;-->
+            margin: 0;
             -webkit-user-select: none;   /* 禁止选中文本(如无文本选中需求,此为必选项) */
             -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
         }
+    
+ 
     
     table {
         border-collapse: collapse;
         width: 100%;
     }
     
-    th, td {
-        text-align: left;
-        padding: 8px;
+    table, th, td {
+        border: 1px solid black;
     }
-    
     tr:nth-child(even){background-color: #f2f2f2}
     
-    th {
-        background-color: #4CAF50;
-        color: white;
+    table {
+        border-collapse: collapse;
+        width: 100%;
     }
-<!--
-        body {
-            margin: 0 4px;
-        }
+
     
-        h1, h2, h3, h4, h5, h6 {
-            padding: 5px 10px;
-        }
-        p {
-            padding: 8px 10px;
-            line-height: 22px;
-        }
-        strong {
-            font-weight: 900;
-        }
-        img {
-            width: 100%;
-        }
+
+    body {
+        margin: 0 4px;
+    }
     
-        blockquote {
-            margin-left: 15px;
-            border-left: lightgray solid 5px;
-            color: gray;
-        }
-        .icon {
-            display: inline-block;
-            width: 2em;
-            height: 2em;
-            /*fill: currentColor;*/
-        }
-        span {
-            margin: 1px;
-        }
-        div {
-            
-        }
-        .flex-layout {
-            display: -webkit-flex;
-            display: flex;
-        }
-        .row {
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
+    h1, h2, h3, h4, h5, h6 {
+        padding: 5px 10px;
+    }
+    p {
+        padding: 8px 10px;
+        line-height: 22px;
+    }
+    strong {
+        font-weight: 900;
+    }
+    img {
+        width: 100%;
+    }
+    
+    blockquote {
+        margin-left: 15px;
+        border-left: lightgray solid 5px;
+        color: gray;
+    }
+    .icon {
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        /*fill: currentColor;*/
+    }
+    span {
+        margin: 1px;
+    }
+    div {
         
-        .column {
-            -webkit-flex-direction: column;
-            flex-direction: column;
-        }
-        .column-reverse {
-            -webkit-flex-direction: column-reverse ;
-            flex-direction: column-reverse ;
-        }
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            display: -webkit-flex;
-            -webkit-justify-content: center;
-            -webkit-align-items: center;
-        }
-        .v-center {
-            -webkit-justify-content: center;
-            justify-content: center;
-        }
-        .h-center {
-            -webkit-align-items: center;
-            align-items: center;
-        }
+    }
+    .flex-layout {
+        display: -webkit-flex;
+        display: flex;
+    }
+    .row {
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+    
+    .column {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    .column-reverse {
+        -webkit-flex-direction: column-reverse ;
+        flex-direction: column-reverse ;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: -webkit-flex;
+        -webkit-justify-content: center;
+        -webkit-align-items: center;
+    }
+    .v-center {
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    .h-center {
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .button {
+        font-size: 13;
+        color: #2196F3;
+        width: 60px;
+        height: 24px;
+        border-radius: 12px;
+        border: solid 1px #2196F3;
+    }
+    
+    header {
+        margin: 25px 0 10px 0;
+    }
+    
+    header .main {
+        margin: 5px 10px;
+        font-size: 24px;
+        justify-content:space-between;
+        -webkit-justify-content:space-between;
+    }
+    #name {
+        font-size: 13px;
+        padding: 0 5px 1px 10px;
+        border-bottom: dotted 1px #2196F3;
+    }
+    .content {
+        /*padding: 10px;*/
+    }
+    
+    .label {
+        margin: 2px 0;
+        font-size: 10px;
+        color: #2196F3;
+        width: 50px;
+        height: 16px;
+        border-radius: 8px;
+        border: solid 1px #2196F3;
+    }
+    .label-container {
+        width: 30%;
+        margin-right: 10px;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    .actions {
+        background: #EEEEEE;
+        height: 80px;
+        /*align-items: flex-end;*/
         
-        .button {
-            font-size: 13;
-            color: #2196F3;
-            width: 60px;
-            height: 24px;
-            border-radius: 12px;
-            border: solid 1px #2196F3;
-        }
-        
-        header {
-            margin: 25px 0 10px 0;
-        }
-        
-        header .main {
-            margin: 5px 10px;
-            font-size: 24px;
-            justify-content:space-between;
-            -webkit-justify-content:space-between;
-        }
-        #name {
-            font-size: 13px;
-            padding: 0 5px 1px 10px;
-            border-bottom: dotted 1px #2196F3;
-        }
-        .content {
-            /*padding: 10px;*/
-        }
-        
-        .label {
-            margin: 2px 0;
-            font-size: 10px;
-            color: #2196F3;
-            width: 50px;
-            height: 16px;
-            border-radius: 8px;
-            border: solid 1px #2196F3;
-        }
-        .label-container {
-            width: 30%;
-            margin-right: 10px;
-            -webkit-justify-content: flex-end;
-            justify-content: flex-end;
-        }
-        .actions {
-            background: #EEEEEE;
-            height: 80px;
-            /*align-items: flex-end;*/
-            
-            padding-right: 15px;
-            -webkit-justify-content: flex-end;
-            justify-content: flex-end;
-        }
-        
-        .info {
-            padding: 0 10px;
-            -webkit-justify-content: flex-end;
-            justify-content: flex-end;
-        }
-        
-        .image {
-            margin: 0 10px;
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            /*border: 1px solid grey;*/
-        }
-        .time {
-            font-size: 12px;
-            /*justify-content: flex-end;*/
-            -webkit-align-items: flex-end;
-            align-items: flex-end;
-            margin: 0 5px;
-            /*transform: translate(0,-8px);*/
-            color: #9E9E9E;
-        }
-        
-        .icon-container {
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            border-style: solid;
-            border-width: 0.5px;
-            /*border: solid 1px;*/
-            height: 50px;
-            width: 50px;
-            border-radius: 25px;
-            margin: 0 5px;
-            border-color:  #9E9E9E;
-        }
-    -->
+        padding-right: 15px;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    
+    .info {
+        padding: 0 10px;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    
+    .image {
+        margin: 0 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        /*border: 1px solid grey;*/
+    }
+    .time {
+        font-size: 12px;
+        /*justify-content: flex-end;*/
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+        margin: 0 5px;
+        /*transform: translate(0,-8px);*/
+        color: #9E9E9E;
+    }
+    
+    .icon-container {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        border-style: solid;
+        border-width: 0.5px;
+        /*border: solid 1px;*/
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        margin: 0 5px;
+        border-color:  #9E9E9E;
+    }
     
         {{highlightCss}}
     </style>

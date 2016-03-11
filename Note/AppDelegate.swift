@@ -154,9 +154,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             shouldPerformAdditionalDelegateHandling = false
         }
         
-        if shouldPerformAdditionalDelegateHandling == true {
-            sleep(1)
-        }
+//        if shouldPerformAdditionalDelegateHandling == true {
+//            sleep(1)
+//        }
         return shouldPerformAdditionalDelegateHandling
 //        return true
     }

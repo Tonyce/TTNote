@@ -12,6 +12,7 @@ import GCDWebServer
 
 class WebServerViewController: UIViewController {
     
+    @IBOutlet weak var webServerLabel: UILabel!
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
@@ -51,6 +52,7 @@ class WebServerViewController: UIViewController {
         
         if server.startWithPort(8080, bonjourName: "GCD Web Server") == true {
             if server.serverURL != nil {
+                webServerLabel.text = "请在浏览器中输入以下地址："
                 webLabel.text = "\(webServer!.serverURL)"
             } else {
                 webLabel.text = "请确保您已经接入wifi局域网"

@@ -11,7 +11,7 @@ import UIKit
 enum LeftMenu: Int {
     case Note = 0
     case WebServer
-//    case help
+    case help
 //    case feedback
     case Setting
 }
@@ -28,7 +28,7 @@ class LeftViewController: UIViewController, LeftMenuProtocol {
     let tableData = [
         ["icon": GoogleIcon.e920, "name":"Note"],
         ["icon": GoogleIcon.ec2e, "name":"wifi文件传输"],
-//        ["icon": GoogleIcon.e66a, "name":"帮助"],
+        ["icon": GoogleIcon.e66a, "name":"帮助"],
 //        ["icon": GoogleIcon.e6f5, "name":"反馈"],
         ["icon": GoogleIcon.e6c5, "name":"设置"]
     ]
@@ -86,8 +86,8 @@ extension LeftViewController: UITableViewDataSource, UITableViewDelegate {
 
         case .WebServer:
             self.slideMenuController()?.changeMainViewController(self.webServerViewController!, close: true)
-//        case .help:
-//            self.slideMenuController()?.changeMainViewController(self.helpViewController!, close: true)
+        case .help:
+            self.slideMenuController()?.changeMainViewController(self.helpViewController!, close: true)
 //        case .feedback:
 //            self.slideMenuController()?.changeMainViewController(self.feedbackViewController!, close: true)
         case .Setting:

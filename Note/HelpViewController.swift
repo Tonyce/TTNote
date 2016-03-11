@@ -39,8 +39,8 @@ class HelpViewController: UIViewController {
         
         if mdStr != "" {
             mdStr = mdStr.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
-            mdStr = mdStr.stringByReplacingOccurrencesOfString("\'", withString: "\\'")
-            mdStr = mdStr.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
+//            mdStr = mdStr.stringByReplacingOccurrencesOfString("\'", withString: "\\'")
+//            mdStr = mdStr.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
         }
 
         parserMarkdownStrToHtml(mdStr) {

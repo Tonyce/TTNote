@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
         initButton()
         tableView.tableFooterView = UIView()
         tableData = []

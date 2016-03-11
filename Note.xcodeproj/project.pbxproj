@@ -48,6 +48,7 @@
 		BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E465E1C15AD81006A40F2 /* ItemCell.swift */; };
 		BE7E46611C15CABA006A40F2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46601C15CABA006A40F2 /* TextViewController.swift */; };
 		BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E46671C15DA31006A40F2 /* TimeConponent.swift */; };
+		BE82DE431C2CF69700C0790D /* HelpMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE82DE421C2CF69700C0790D /* HelpMoreViewController.swift */; };
 		BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */; };
 		BEC92B811C15EC6E00A2645C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B801C15EC6E00A2645C /* UIViewController.swift */; };
 		BEC92B831C167E5C00A2645C /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC92B821C167E5C00A2645C /* LeftViewController.swift */; };
@@ -101,6 +102,7 @@
 		BE7E465E1C15AD81006A40F2 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		BE7E46601C15CABA006A40F2 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		BE7E46671C15DA31006A40F2 /* TimeConponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConponent.swift; sourceTree = "<group>"; };
+		BE82DE421C2CF69700C0790D /* HelpMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMoreViewController.swift; sourceTree = "<group>"; };
 		BEBA12451C16FCF9003D6AD2 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		BEC92B801C15EC6E00A2645C /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BEC92B821C167E5C00A2645C /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				BE0A85771C1ECDD00036FEBC /* note.md */,
 				BE248F311C1836D100609600 /* HelpViewController.swift */,
 				BE71ED5D1C2BDF5D0065BBCD /* welcome.md */,
+				BE82DE421C2CF69700C0790D /* HelpMoreViewController.swift */,
 			);
 			name = helpView;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				BE7E465F1C15AD81006A40F2 /* ItemCell.swift in Sources */,
 				BE71ED611C2C2FA00065BBCD /* Application.swift in Sources */,
 				BEBA12461C16FCF9003D6AD2 /* PDFViewController.swift in Sources */,
+				BE82DE431C2CF69700C0790D /* HelpMoreViewController.swift in Sources */,
 				BE7E46681C15DA31006A40F2 /* TimeConponent.swift in Sources */,
 				BE7E464F1C157B8E006A40F2 /* ViewComponent.swift in Sources */,
 				BE248F341C18375D00609600 /* FeedbackViewController.swift in Sources */,
@@ -518,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -557,7 +561,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -569,6 +573,7 @@
 			baseConfigurationReference = F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -582,6 +587,7 @@
 			baseConfigurationReference = 3BBB48757D7B4F33880F919C /* Pods-Note.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
