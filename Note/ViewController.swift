@@ -165,10 +165,10 @@ extension ViewController {
         addFileButton.setShadow()
         addDirButton.setShadow()
         
-        addButton.titleLabel?.font = UIFont(name: "googleicon", size: 30)
-        addButton.setTitle(GoogleIcon.e803, forState: UIControlState.Normal)
-        addButton.backgroundColor = UIColor.MKColor.LightBlue
-        addButton.tintColor = UIColor.whiteColor()
+//        addButton.titleLabel?.font = UIFont(name: "googleicon", size: 30)
+//        addButton.setTitle(GoogleIcon.e803, forState: UIControlState.Normal)
+//        addButton.backgroundColor = UIColor.MKColor.LightBlue
+//        addButton.tintColor = UIColor.whiteColor()
         
         addDirButton.titleLabel?.font = UIFont(name: "googleicon", size: 30)
         addDirButton.setTitle(GoogleIcon.e9c3, forState: UIControlState.Normal)

@@ -573,6 +573,7 @@
 			baseConfigurationReference = F9A63C65014CE0D26E705CC1 /* Pods-Note.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -587,6 +588,7 @@
 			baseConfigurationReference = 3BBB48757D7B4F33880F919C /* Pods-Note.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chuantang Gu (3L3848LR84)";
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

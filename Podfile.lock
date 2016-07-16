@@ -1,0 +1,18 @@
+PODS:
+  - GCDWebServer/Core (3.2.7)
+  - GCDWebServer/WebUploader (3.2.7):
+    - GCDWebServer/Core
+  - M13PDFKit (1.0.2):
+    - TTOpenInAppActivity
+  - TTOpenInAppActivity (1.0)
+
+DEPENDENCIES:
+  - GCDWebServer/WebUploader (~> 3.0)
+  - M13PDFKit (= 1.0.2)
+
+SPEC CHECKSUMS:
+  GCDWebServer: 76a9540371d5f12f850b32ec7f555dd2d266e543
+  M13PDFKit: bc121a55ccb8ddfcf3982f1a5a8592b9f492cd73
+  TTOpenInAppActivity: c2218fe419d03ddd4ffb1f07d52d66e0d213d0d4
+
+COCOAPODS: 0.39.0

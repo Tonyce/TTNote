@@ -176,7 +176,7 @@ extension UIView {
         self.layer.shadowOpacity = 0.7
         self.layer.shadowOffset  = CGSize(width: 1, height: 1.5)
         self.layer.shadowColor   = UIColor.blackColor().CGColor
-         self.layer.shadowRadius  = 5.0
+//         self.layer.shadowRadius  = 5.0
     }
     
     func removeShadow() {
